@@ -36,7 +36,12 @@
 
 // Pull in VST3 types we embed in message structures.
 // These are all POD structs so including them here is safe.
-#include "vst3sdk.h"
+#include "pluginterfaces/base/funknown.h"
+#include "pluginterfaces/base/ipluginbase.h"
+#include "pluginterfaces/vst/ivstcomponent.h"
+#include "pluginterfaces/vst/ivstaudioprocessor.h"
+#include "pluginterfaces/vst/ivsteditcontroller.h"
+#include "pluginterfaces/gui/iplugview.h"
 
 namespace vst3bridge {
 

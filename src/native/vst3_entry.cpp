@@ -27,7 +27,7 @@
     #define SMTG_EXPORT_SYMBOL __attribute__ ((visibility ("default")))
 #endif
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/ipluginbase.h"
 #include "socket.h"
 #include "protocol.h"
 #include "audio_shm.h"

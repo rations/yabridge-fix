@@ -49,7 +49,7 @@ endif
 # Include directories
 # ---------------------------------------------------------------------------
 
-inc_common  = include_directories('src/common', 'src/vst3-sdk')
+inc_common  = include_directories('src/common', 'third_party/vst3sdk')
 inc_native  = include_directories('src/native')
 inc_wine    = include_directories('src/wine-host')
 
@@ -84,14 +84,15 @@ native_sources = files(
 
 native_cpp_args = common_cpp_args + [
     '-DBUILDING_NATIVE',
+    '-DSMTG_OS_LINUX',
 ]
 
 # Native library dependencies
 thread_dep        = dependency('threads')
-x11_dep           = dependency('x11',         required : true)
-xcb_dep           = dependency('xcb',         required : true)
-xcb_keysyms_dep   = dependency('xcb-keysyms', required : false)
-xext_dep          = dependency('xext',        required : false)  # XShm
+x11_dep           = dependency('x11',         required : true, native: true)
+xcb_dep           = dependency('xcb',         required : true, native: true)
+xcb_keysyms_dep   = dependency('xcb-keysyms', required : false, native: true)
+xext_dep          = dependency('xext',        required : false, native: true)  # XShm
 
 native_deps = [thread_dep, x11_dep, xcb_dep]
 if xcb_keysyms_dep.found()
@@ -137,24 +138,23 @@ wine_common_sources = files(
     'src/common/gui_events.cpp',
     'src/common/stream.cpp',
     'src/common/socket.cpp',
-    'src/common/logger.cpp',
 )
 
-# Wine host build disabled due to cross-compilation issues
-mingw64 = find_program('x86_64-w64-mingw32-g++', required : false)
+# Wine host build with wineg++ (proper Wine compiler)
+winegpp = find_program('wineg++', required : false)
 
-if mingw64.found()
+if winegpp.found()
     all_wine_sources = wine_common_sources + wine_sources
 
     wine_host_exe = custom_target('vst3bridge-host',
         output   : 'vst3bridge-host.exe',
         input    : all_wine_sources,
-        command  : [mingw64, '@INPUT@', '-o', '@OUTPUT@', '-std=c++17', '-I/home/rations/vst3bridge/src/common', '-I/home/rations/vst3bridge/src/vst3-sdk', '-I/home/rations/vst3bridge/src/wine-host', '-fvisibility=hidden', '-fvisibility-inlines-hidden', '-fno-strict-aliasing', '-msse2', '-DNDEBUG', '-DBUILDING_WINE_HOST', '-DNOMINMAX', '-D_WIN32_WINNT=0x0601', '-Wno-unknown-pragmas', '-Wno-pedantic', '-mwindows', '-lstdc++', '-lm', '-lws2_32', '-lgdi32', '-luser32', '-lkernel32', '-luuid', '-lole32', '-lshell32'],
+        command  : [winegpp, '@INPUT@', '-o', '@OUTPUT@', '-std=c++17', '-I/home/rations/vst3bridge/src/common', '-I/home/rations/vst3bridge/third_party/vst3sdk', '-I/home/rations/vst3bridge/src/wine-host', '-fvisibility=hidden', '-fvisibility-inlines-hidden', '-fno-strict-aliasing', '-msse2', '-DNDEBUG', '-DBUILDING_WINE_HOST', '-DSMTG_OS_WINDOWS', '-DNOMINMAX', '-D_WIN32_WINNT=0x0601', '-Wno-unknown-pragmas', '-Wno-pedantic', '-mwindows', '-lstdc++', '-lm', '-lws2_32', '-lgdi32', '-luser32', '-lkernel32', '-luuid', '-lole32', '-lshell32', '-lrt'],
         build_by_default : true,
         install  : false,
     )
 else
-    message('mingw64 not found — Wine host build skipped')
+    message('wineg++ not found — Wine host build skipped')
 endif
 
 # ---------------------------------------------------------------------------

@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/ipluginbase.h"
 #include "socket.h"
 #include "protocol.h"
 #include "plugin_proxy.h"

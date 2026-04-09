@@ -26,9 +26,9 @@
 #include <thread>
 #include <atomic>
 #include <memory>
-namespace vst3bridge {
 
-class WineSocketClient;
+namespace vst3bridge { class WineSocketClient; }
+using namespace vst3bridge;
 
 /**
  * @brief Receives GUI events from native side and forwards to plugin
@@ -43,7 +43,7 @@ public:
      * @param socket Socket for communication with native side
      * @param plugin_window Plugin window handle
      */
-    GUIEventReceiver(WineSocketClient* socket, HWND plugin_window);
+    GUIEventReceiver(vst3bridge::WineSocketClient* socket, HWND plugin_window);
 
     ~GUIEventReceiver();
 
@@ -103,7 +103,7 @@ private:
      */
     DWORD modifiersToFlags(const ModifierKeys& modifiers) const;
 
-    WineSocketClient* socket_;
+    vst3bridge::WineSocketClient* socket_;
     HWND plugin_window_;
 
     std::thread receive_thread_;

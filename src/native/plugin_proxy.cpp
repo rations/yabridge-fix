@@ -329,7 +329,6 @@ tresult PLUGIN_API PluginProxy::canProcessSampleSize(int32 symbolicSampleSize) {
 }
 
 uint32 PLUGIN_API PluginProxy::getLatencySamples() {
-    MsgRequestGetLatencySamples req{};
     MsgResponseGetLatencySamples resp{};
     if (!sendEmptyRequest(MsgType::GetLatencySamples, resp)) {
         return 0;
@@ -506,7 +505,6 @@ tresult PLUGIN_API PluginProxy::process(ProcessData& data) {
 }
 
 uint32 PLUGIN_API PluginProxy::getTailSamples() {
-    MsgRequestGetTailSamples req{};
     MsgResponseGetTailSamples resp{};
     if (!sendEmptyRequest(MsgType::GetTailSamples, resp)) {
         return 0;

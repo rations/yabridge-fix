@@ -21,9 +21,12 @@
 #pragma once
 
 #include "audio_shm_host.h"
+#include "parameter_changes.h"
 #include <windows.h>
 #include <cstring>
 #include <iostream>
+#include <thread>
+#include "wine_socket_client.h"
 
 namespace vst3bridge {
 

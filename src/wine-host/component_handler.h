@@ -25,17 +25,17 @@
 
 #pragma once
 
+#include "vst3sdk.h"
+
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
-
-#include "vst3sdk.h"
 #include "protocol.h"
+#include "pluginterfaces/base/funknown.h"
+#include "pluginterfaces/vst/ivsteditcontroller.h"
 
-namespace vst3bridge {
-
-class WineSocketClient;
+namespace vst3bridge { class WineSocketClient; }
 
 /**
  * @brief IComponentHandler that forwards all callbacks over the IPC socket.
@@ -51,7 +51,7 @@ public:
      *                The caller must ensure socket outlives this object.
      */
     ComponentHandler(WineSocketClient* socket);
-    ~ComponentHandler() override = default;
+    ~ComponentHandler() = default;
 
     // Non-copyable, non-movable
     ComponentHandler(const ComponentHandler&) = delete;
@@ -62,40 +62,15 @@ public:
     Steinberg::tresult PLUGIN_API queryInterface(const Steinberg::TUID _iid, void** obj) override;
     Steinberg::uint32 PLUGIN_API addRef() override;
     Steinberg::uint32 PLUGIN_API release() override;
-
-    // ---- IComponentHandler --------------------------------------------------
-
-    /**
-     * @brief Called by plugin when user starts dragging a control.
-     *
-     * Forwards MsgComponentHandlerBeginEdit to the native side.
-     */
     Steinberg::tresult PLUGIN_API beginEdit(Steinberg::uint32 id) override;
-
-    /**
-     * @brief Called by plugin on every value change during a drag gesture.
-     *
-     * Forwards MsgComponentHandlerPerformEdit.
-     */
     Steinberg::tresult PLUGIN_API performEdit(
             Steinberg::uint32 id, double valueNormalized) override;
-
-    /**
-     * @brief Called by plugin when the user releases the control.
-     *
-     * Forwards MsgComponentHandlerEndEdit.
-     */
     Steinberg::tresult PLUGIN_API endEdit(Steinberg::uint32 id) override;
-
-    /**
-     * @brief Called by plugin to request a host restart.
-     *
-     * Forwards MsgComponentHandlerRestart.
-     */
     Steinberg::tresult PLUGIN_API restartComponent(Steinberg::int32 flags) override;
 
     // ---- FUnknown iid -------------------------------------------------------
 
+public:
     static const Steinberg::FUID iid;
 
 private:

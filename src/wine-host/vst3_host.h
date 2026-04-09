@@ -30,7 +30,7 @@
 #endif
 #include <windows.h>
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/ipluginbase.h"
 
 namespace vst3bridge {
 

@@ -20,7 +20,8 @@
 
 #pragma once
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/funknown.h"
+#include "pluginterfaces/vst/ihostapplication.h"
 
 namespace vst3bridge {
 

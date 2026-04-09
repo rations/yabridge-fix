@@ -16,10 +16,25 @@
 #include "shared_memory.h"
 #include "logger.h"
 
+#ifdef BUILDING_WINE_HOST
+// Wine host: Wine implements posix shm functions natively
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+// IMPORTANT: DO NOT include sys/socket.h anywhere in Wine host code!
+#include <windows.h>
+#elif defined(_WIN32)
+#include <windows.h>
+#else
+// Native Linux build
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#endif
 #include <algorithm>
 #include <chrono>
 #include <cstring>

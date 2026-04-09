@@ -210,7 +210,11 @@ public:
     const std::string& getPath() const { return path_; }
 
 private:
+#ifdef _WIN32
+    SOCKET fd_ = INVALID_SOCKET;
+#else
     int fd_ = -1;
+#endif
     std::string path_;
 };
 

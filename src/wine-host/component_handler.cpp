@@ -28,6 +28,8 @@ const Steinberg::FUID ComponentHandler::iid(
 // ============================================================================
 // Constructor
 // ============================================================================
+// Constructor
+// ============================================================================
 
 ComponentHandler::ComponentHandler(WineSocketClient* socket)
     : socket_(socket), refCount_(1)
@@ -37,17 +39,7 @@ ComponentHandler::ComponentHandler(WineSocketClient* socket)
 // FUnknown
 // ============================================================================
 
-Steinberg::uint32 PLUGIN_API ComponentHandler::addRef() {
-    return ++refCount_;
-}
 
-Steinberg::uint32 PLUGIN_API ComponentHandler::release() {
-    Steinberg::uint32 r = --refCount_;
-    if (r == 0) {
-        delete this;
-    }
-    return r;
-}
 
 Steinberg::tresult PLUGIN_API ComponentHandler::queryInterface(
         const Steinberg::TUID _iid, void** obj)
@@ -75,7 +67,7 @@ Steinberg::tresult PLUGIN_API ComponentHandler::queryInterface(
 
 Steinberg::tresult PLUGIN_API ComponentHandler::beginEdit(Steinberg::uint32 id)
 {
-    if (!ipc_) return Steinberg::kInternalError;
+    if (!socket_) return Steinberg::kInternalError;
 
     MsgComponentHandlerBeginEdit msg;
     msg.param_id = id;
@@ -92,7 +84,7 @@ Steinberg::tresult PLUGIN_API ComponentHandler::beginEdit(Steinberg::uint32 id)
 Steinberg::tresult PLUGIN_API ComponentHandler::performEdit(
         Steinberg::uint32 id, double valueNormalized)
 {
-    if (!ipc_) return Steinberg::kInternalError;
+    if (!socket_) return Steinberg::kInternalError;
 
     MsgComponentHandlerPerformEdit msg;
     msg.param_id = id;
@@ -109,7 +101,7 @@ Steinberg::tresult PLUGIN_API ComponentHandler::performEdit(
 
 Steinberg::tresult PLUGIN_API ComponentHandler::endEdit(Steinberg::uint32 id)
 {
-    if (!ipc_) return Steinberg::kInternalError;
+    if (!socket_) return Steinberg::kInternalError;
 
     MsgComponentHandlerEndEdit msg;
     msg.param_id = id;
@@ -125,7 +117,7 @@ Steinberg::tresult PLUGIN_API ComponentHandler::endEdit(Steinberg::uint32 id)
 
 Steinberg::tresult PLUGIN_API ComponentHandler::restartComponent(Steinberg::int32 flags)
 {
-    if (!ipc_) return Steinberg::kInternalError;
+    if (!socket_) return Steinberg::kInternalError;
 
     MsgComponentHandlerRestart msg;
     msg.flags = flags;
@@ -138,5 +130,7 @@ Steinberg::tresult PLUGIN_API ComponentHandler::restartComponent(Steinberg::int3
     }
     return Steinberg::kResultOk;
 }
+
+IMPLEMENT_REFCOUNT(ComponentHandler)
 
 } // namespace vst3bridge

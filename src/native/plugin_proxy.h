@@ -36,7 +36,11 @@
 
 #pragma once
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/ipluginbase.h"
+#include "pluginterfaces/vst/ivstcomponent.h"
+#include "pluginterfaces/vst/ivstaudioprocessor.h"
+#include "pluginterfaces/vst/ivsteditcontroller.h"
+#include "pluginterfaces/gui/iplugview.h"
 #include "protocol.h"
 #include "socket.h"
 #include "shared_memory.h"

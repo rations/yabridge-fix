@@ -34,7 +34,7 @@
 
 #pragma once
 
-#include "vst3sdk.h"
+#include "pluginterfaces/base/ibstream.h"
 #include <cstring>
 #include <vector>
 
@@ -144,14 +144,14 @@ public:
         Steinberg::int64 newPos = 0;
 
         switch (mode) {
-            case Steinberg::kIBSeekSet:
-                newPos = pos;
+            case 0: // kIBSeekSet
+                pos = pos_;
                 break;
-            case Steinberg::kIBSeekCur:
-                newPos = pos_ + pos;
+            case 1: // kIBSeekCur
+                pos = pos_;
                 break;
-            case Steinberg::kIBSeekEnd:
-                newPos = static_cast<Steinberg::int64>(buffer_.size()) + pos;
+            case 2: // kIBSeekEnd
+                pos = static_cast<Steinberg::int64>(buffer_.size());
                 break;
             default:
                 return Steinberg::kInvalidArgument;
@@ -224,7 +224,7 @@ inline Steinberg::tresult PLUGIN_API MemoryStream::queryInterface(
         const Steinberg::TUID _iid, void** obj)
 {
     if (!obj) return Steinberg::kInvalidArgument;
-    Steinberg::FUID requested(_iid);
+    Steinberg::FUID requested = Steinberg::FUID::fromTUID(_iid);
     if (requested == Steinberg::FUnknown::iid ||
         requested == Steinberg::IBStream::iid ||
         requested == MemoryStream::iid)
