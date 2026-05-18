@@ -1,0 +1,9 @@
+[wrap-git]
+url = https://github.com/Naios/function2.git
+# Tag 4.2.3
+revision = 9e303865d14f1204f09379e37bbeb30c4375139a
+depth = 1
+patch_directory = function2
+
+[provide]
+function2 = function2_dep

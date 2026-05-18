@@ -1,0 +1,45 @@
+// yabridge: a Wine plugin bridge
+// Copyright (C) 2020-2024 Robbert van der Helm
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#pragma once
+
+/**
+ * The name of yabridge's CLAP library, e.g. `libyabridge-clap.so`.
+ */
+constexpr char yabridge_clap_plugin_name[] = "@clap_plugin_name@";
+
+/**
+ * The name of yabridge's VST2 library, e.g. `libyabridge-vst2.so`.
+ */
+constexpr char yabridge_vst2_plugin_name[] = "@vst2_plugin_name@";
+
+/**
+ * The name of yabridge's VST3 library, e.g. `libyabridge-vst3.so`.
+ */
+constexpr char yabridge_vst3_plugin_name[] = "@vst3_plugin_name@";
+
+/**
+ * The name of the Wine plugin host application, e.g. `yabridge-host.exe` for
+ * the regular 64-bit build.
+ */
+constexpr char yabridge_host_name[] = "@host_binary_64bit@";
+
+/**
+ * The name of the 32-bit Wine plugin host application, e.g.
+ * `yabridge-host-32.exe`.` This is used as a bitbridge to be able to load
+ * legacy 32-bit only Windows plugins from a 64-bit Linux host.
+ */
+constexpr char yabridge_host_name_32bit[] = "@host_binary_32bit@";

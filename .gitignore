@@ -13,3 +13,5 @@ tmp*/
 # This directory is an accidental nested checkout of the same repo.
 # It should either be removed or its contents merged at the root level.
 vst3bridge/
+
+/CLAUDE.md/

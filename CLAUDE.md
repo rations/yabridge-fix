@@ -1,230 +1,182 @@
-# VST3 Bridge — Developer Reference
+# VST3 GDI Capture Bridge — Project State
 
-## What This Project Does
+## What This Is
 
-`vst3bridge` is a Wine-based VST3 bridge that lets Windows VST3 plugins run on Linux (X11 only, no Wayland). It is designed to work with **current winehq-staging** and must not depend on any specific Wine version number.
+A patch on top of **yabridge 5.1.1** (`/home/human/vst3bridge/yabridge-5.1.1/`) that
+makes Windows VST3 plugin GUIs work with Wine >= 9.21. The original yabridge
+window-embedding approach (`xcb_reparent_window`) broke in that Wine version.
 
-It does **not** require systemd — it uses only POSIX primitives (`shm_open`, Unix sockets, `fork`/`exec`) and works on Devuan/sysvinit and any other init system.
+**The fix strategy:** GDI capture — the plugin renders inside a hidden Win32
+HWND; a capture thread reads frames via BitBlt into a POSIX SHM ring buffer;
+the native Linux side reads those frames and blits them into an X11 child window
+that lives under the DAW's panel.
 
-**Target DAW for testing:** Reaper on Devuan GNU/Linux.
-**Test plugin:** NA Black.vst3 at `~/.wine/drive_c/Program Files/Common Files/VST3/NA Black.vst3/`
-
----
-
-## Architecture
-
-```
-DAW (Reaper)
-  │  VST3 API
-  ▼
-libvst3bridge.so          ← native Linux VST3 plugin (.so in DAW scan path)
-  │  fork+exec wine
-  │  Unix socket (AF_UNIX, /tmp/vst3bridge_<pid>_*)
-  │  POSIX SHM (audio buffers, video frames)
-  ▼
-vst3bridge-host.exe       ← Wine PE executable (actually ELF, runs under wine)
-  │  LoadLibraryW
-  ▼
-Windows .vst3 DLL         ← real Windows plugin (in Wine prefix)
-```
-
-**Native side** (`src/native/`): Implements `IPluginFactory` and `IEditController`/`IComponent` proxies. Receives VST3 calls from the DAW, serializes them over a Unix socket to the Wine host.
-
-**Wine host** (`src/wine-host/`): Connects to the Unix socket, loads the Windows DLL via `LoadLibraryW`, and calls the real VST3 interfaces. GDI captures the plugin GUI and sends frames via shared memory.
-
-**Common** (`src/common/`): Protocol definitions, socket wrapper, shared memory abstractions.
+**Build directory:** `yabridge-5.1.1/build-mod/`  
+**Deploy targets:** `~/.local/share/yabridge/libyabridge-vst3.so` and
+`~/.local/share/yabridge/yabridge-host.exe.so` + `yabridge-host.exe`
 
 ---
 
-## Directory Structure
+## Files We Added / Changed
 
-```
-vst3bridge/
-├── src/
-│   ├── common/             Unix socket, POSIX SHM, IPC protocol, stream impl
-│   │   ├── protocol.h      All message structs and MsgType enum
-│   │   ├── socket.h/cpp    MessageSocket + SocketServer (AF_UNIX on Linux)
-│   │   ├── shared_memory.h POSIX SHM wrappers (AudioSharedMemory, FrameSharedMemory)
-│   │   └── logger.h        Thread-safe logging
-│   ├── native/             Linux-side: loaded by DAW as a real VST3 plugin
-│   │   ├── vst3_entry.cpp  GetPluginFactory() — forks Wine host, returns factory proxy
-│   │   ├── plugin_factory.cpp  IPluginFactory proxy (routes to Wine)
-│   │   ├── plugin_proxy.cpp    IComponent/IAudioProcessor/IEditController proxy
-│   │   ├── x11_window.cpp  X11 window for embedding plugin GUI
-│   │   ├── gui_handler.cpp XCB event capture → sends to Wine as MsgInputEvent
-│   │   └── audio_shm.cpp   Native-side audio SHM client
-│   └── wine-host/          Wine-side: PE executable running under wine
-│       ├── host_main.cpp   Main loop: Windows message pump + IPC dispatch
-│       ├── vst3_host.cpp   LoadLibraryW, GetPluginFactory, IPluginFactory2/3
-│       ├── plugin_instance.cpp  Creates/manages plugin instances via QueryInterface
-│       ├── audio_processor.cpp  Runs IAudioProcessor::process() per block
-│       ├── gdi_capture.cpp GDI BitBlt → writes BGRA frames to FrameSharedMemory
-│       ├── window_manager.cpp  Off-screen HWND creation for plugin GUI
-│       ├── component_handler.cpp  IComponentHandler proxy (Wine→native callbacks)
-│       ├── parameter_changes.h  ParameterChanges/ParamValueQueue implementations
-│       ├── host_application.h   IHostApplication impl (returns "VST3 Bridge")
-│       ├── wine_socket_client.h  WineSocketClient declaration (AF_UNIX via Winsock2)
-│       ├── socket_server.cpp    WineSocketClient implementation (AF_UNIX via Winsock2)
-│       └── wine_win32_prelude.h  Force-included first in every Wine TU (see below)
-├── third_party/
-│   ├── vst3sdk/            Steinberg VST3 SDK v3.7.3 (git submodule)
-│   └── wine-windows/include/  Vendored Wine Windows headers from libwine-dev 10.0
-├── meson.build             Root build file (native .so + Wine .exe)
-├── wine.cross              Meson cross-file for Wine/wineg++ builds
-└── meson_options.txt       Options: bitbridge, winedbg, tests
-```
+| File | What changed |
+|------|-------------|
+| `src/common/frame_shm.h/.cpp` | POSIX SHM triple-buffer ring + input event SPSC ring |
+| `src/wine-host/gdi_capture.h/.cpp` | BitBlt GDI capture into 32bpp BGRA buffer |
+| `src/wine-host/editor.h/.cpp` | GDI mode branch: hidden container, SHM open, Win32Thread capture loop, ChildWindowFromPointEx mouse routing |
+| `src/wine-host/bridges/vst3.cpp` | Passes `frame_shm_name` to Editor constructor |
+| `src/common/serialization/vst3/plug-view/plug-view.h` | `frame_shm_name` field in `Attached` struct |
+| `src/plugin/bridges/vst3-impls/plug-view-proxy.h/.cpp` | Creates SHM, XCB connection, render window, GC; starts render thread |
 
 ---
 
-## Prerequisites
+## What Works (Single Plugin)
+
+- Plugin GUI displays correctly inside Reaper's FX window
+- Clicks, knob drags, button presses work
+- Mouse wheel works on some plugins
+- Presets work on some plugins (ML Sound Lab yes, Nembrini Audio inconsistent)
+
+---
+
+## What Is Broken (Multi-Plugin)
+
+### Reaper FX Window Architecture (important context)
+
+- Each **track** has its own FX window
+- Within one track's FX window, all plugins in the chain share the **same parent
+  XID** (the display panel). The user switches between them via a list on the
+  side — Reaper shows/hides the panels, it does NOT call `removed()`/`attached()`
+  on every switch.
+- Different tracks have **different** parent XIDs.
+
+### Symptoms
+
+**Same track, two plugins:**
+- Plugin 1 loads and works
+- Plugin 2 loads — shows **black** in the FX window, or shows content mixed
+  with whatever is behind the window
+- Both `render_window_` instances are children of the same parent XID at (0,0),
+  stacked on top of each other — only the topmost one (plugin 2, created last)
+  is visible
+
+**Different tracks, two plugins:**
+- Plugin 1 on track 1 works
+- Plugin 2 on track 2 loads and works  
+- Plugin 1 **freezes** — GUI stops updating, mouse interaction stops
+- Removing plugin 2 does **not** unfreeze plugin 1
+
+**Confirmed working:** The Wine-side GDI capture is still running even when the
+plugin appears frozen — briefly removing the frozen plugin shows
+`gdi_hide_container_` (the hidden off-screen Wine window) at the top-left of
+screen with the plugin rendering correctly inside it.
+
+---
+
+## Root Cause Hypothesis
+
+The render thread on the native side (`plug-view-proxy.cpp`) blits frames via
+`xcb_put_image` to `render_window_`. If `render_window_` is destroyed or its
+parent is destroyed (Reaper may restructure its X11 window layout when a second
+FX window opens), all subsequent `xcb_put_image` calls silently fail with
+`BadDrawable`. The render thread keeps looping but nothing is displayed. This
+is permanent — the thread never recovers, it just spins writing to a dead window.
+
+The XCB connection itself may also be marked as failed after repeated protocol
+errors, in which case `xcb_poll_for_event`, `xcb_put_image`, and `xcb_flush`
+all become no-ops and the thread spins at 100% CPU.
+
+---
+
+## Steps Completed (Do Not Redo)
+
+1. ✅ Replaced Xlib (`XOpenDisplay`) in render thread with XCB — fixed Xlib
+   global state race when two render threads start simultaneously
+2. ✅ Replaced `WindowFromPoint` with `ChildWindowFromPointEx` in the Wine
+   capture thread — removed cross-process `WM_NCHITTEST` SendMessage
+   (these fixed the symptoms that were present before; the multi-plugin freeze
+   is a separate issue not yet addressed)
+
+---
+
+## Step-by-Step Fix Plan
+
+### STEP 1 — Render thread: detect dead window/connection and reconnect
+
+**Theory:** When Reaper opens a second FX window, it may restructure its X11
+window hierarchy in a way that destroys `render_window_`'s parent (or the
+render_window_ itself). The render thread needs to detect this and recreate the
+window.
+
+**Change:** Store `render_parent_xid_` as a member. In the render thread, after
+`xcb_flush`, check `xcb_connection_has_error`. If the connection is dead,
+close it, open a new XCB connection, recreate `render_window_` under
+`render_parent_xid_`, recreate `render_gc_`, and continue rendering.
+
+**Test:** Load plugin 1 on track 1, load plugin 2 on track 2. Does plugin 1
+stay live after plugin 2 loads? Does plugin 1 recover if it briefly freezes?
+
+**Expected result if hypothesis is correct:** Both plugins display and remain
+interactive simultaneously on different tracks.
+
+---
+
+### STEP 2 — Same-track: Z-order / visibility management
+
+**Theory:** Two plugins on the same track get the same `parent_xid`. Both
+`render_window_` instances are at (0,0), stacked. Only the top one is visible.
+
+**Change options:**
+- Option A: Only show `render_window_` for the currently focused plugin.
+  Listen to `IPlugView::onFocus(true/false)` to map/unmap `render_window_`.
+- Option B: When `attached()` is called, raise our window to the top of the
+  stacking order with `xcb_configure_window(..., XCB_STACK_MODE_ABOVE, ...)`.
+  Use `onFocus` to re-raise when the user switches plugins.
+
+**Test:** Load two plugins on the same track, switch between them in the FX
+list. Does each plugin display correctly when selected?
+
+---
+
+### STEP 3 — Mouse wheel on dials
+
+**Theory:** `WM_MOUSEWHEEL` is being posted but some plugins (Nembrini) do not
+respond. May need `WM_MOUSEHWHEEL` or different target routing.
+
+**Defer until steps 1 and 2 are resolved.**
+
+---
+
+### STEP 4 — Preset navigation (Nembrini Audio)
+
+May be a Wine prefix issue (plugin not finding its preset directory) rather than
+a GUI routing issue. Test with `WINEPREFIX` set correctly and check if
+`~/.wine/drive_c/Users/$USER/Documents/` contains the plugin's preset folder.
+
+**Defer until steps 1 and 2 are resolved.**
+
+---
+
+## Build & Deploy Commands
 
 ```bash
-# Devuan / Debian
-apt install meson ninja-build g++ \
-    libx11-dev libxcb1-dev libxcb-keysyms1-dev libxext-dev \
-    winehq-staging  # or wine-staging from your distro
+cd /home/human/vst3bridge/yabridge-5.1.1
+ninja -C build-mod 2>&1 | tail -10
+
+# Deploy native side (plug-view-proxy changes):
+cp build-mod/libyabridge-vst3.so ~/.local/share/yabridge/
+
+# Deploy Wine side (editor changes):
+cp build-mod/yabridge-host.exe.so ~/.local/share/yabridge/
+cp build-mod/yabridge-host.exe ~/.local/share/yabridge/
 ```
 
-No systemd or DBus required.
-
 ---
 
-## Build
+## Known Non-Issues
 
-```bash
-# First time only — initialize the VST3 SDK submodule
-git submodule update --init third_party/vst3sdk
-
-# Build everything (native .so + Wine .exe in one pass)
-meson setup build
-ninja -C build
-# → build/libvst3bridge.so        (native Linux plugin)
-# → build/vst3bridge-host.exe     (Wine PE stub launcher)
-# → build/vst3bridge-host.exe.so  (Wine ELF shared object, actual code)
-```
-
-Both targets are built by `ninja -C build` in one pass if `wineg++` is found.
-
----
-
-## Running / Testing with Reaper
-
-1. Install the build output:
-   ```bash
-   mkdir -p ~/.local/share/vst3bridge
-   cp build/vst3bridge-host.exe ~/.local/share/vst3bridge/
-   cp build/vst3bridge-host.exe.so ~/.local/share/vst3bridge/
-   ```
-
-2. Create a `.vst3` bundle for Reaper to find:
-   ```bash
-   mkdir -p ~/.vst3/vst3bridge.vst3/Contents/x86_64-linux
-   cp build/libvst3bridge.so ~/.vst3/vst3bridge.vst3/Contents/x86_64-linux/vst3bridge.so
-   ```
-
-3. Set the plugin path and launch Reaper (temporary, until Wine prefix scanning is implemented):
-   ```bash
-   VST3BRIDGE_PLUGIN_PATH="/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA Black.vst3/Contents/x86_64-win/NA Black.vst3" \
-   WINEPREFIX="$HOME/.wine" \
-   reaper
-   ```
-
-4. In Reaper: *Preferences → Plug-ins → VST → VST3 plug-in path* → add `~/.vst3` → *Re-scan*.
-
----
-
-## Key Environment Variables
-
-| Variable | Purpose | Default |
-|----------|---------|---------|
-| `WINEPREFIX` | Wine prefix to use | `~/.wine` |
-| `VST3BRIDGE_PLUGIN_PATH` | Single Windows .vst3 DLL path (temporary) | scan Wine prefix |
-| `VST3BRIDGE_SOCKET_PATH` | IPC socket path (set by native side, read by Wine host) | auto `/tmp/vst3bridge_<pid>_*` |
-| `VST3BRIDGE_SHM_NAME` | Audio SHM name (set by native, read by Wine host) | auto `/vst3bridge_<pid>_*` |
-
----
-
-## IPC Protocol
-
-All communication is over a `AF_UNIX` stream socket using a fixed 24-byte `MessageHeader`:
-
-```
-magic (4) | version (2) | pad (2) | type (4) | payload_size (4) | seq (8)
-```
-
-Followed by `payload_size` bytes of a typed payload struct. All structs are in [src/common/protocol.h](src/common/protocol.h).
-
-**Audio data** goes via POSIX shared memory (not the socket) for performance. The socket carries only the synchronization signals (`MsgRequestProcess` / `MsgResponseProcess`).
-
-**GUI frames** go via a separate `FrameSharedMemory` triple-buffer ring. Frame metadata (`MsgFrameUpdate`) is sent over the socket.
-
----
-
-## Wine Build Notes — `wine_win32_prelude.h`
-
-The Wine host is compiled with `wineg++` (GCC targeting Wine/PE). Several issues arise from the interaction between wineg++, glibc 2.38+, and the Steinberg VST3 SDK headers. All are fixed by force-including `src/wine-host/wine_win32_prelude.h` via `-include` in meson.build.
-
-**Why it exists and what it does:**
-
-1. **`winsock2.h` / `sys/select.h` conflict** — glibc 2.38+ has a chain `stdlib.h → sys/types.h → sys/select.h` that defines `FD_CLR` as an error sentinel before `winsock2.h` can claim `fd_set`. The prelude includes `<winsock2.h>` first, before any C++ standard library header in any translation unit.
-
-2. **`SMTG_DEPRECATED_ATTRIBUTE` parse error** — wineg++ defines `-D __declspec(x)=__declspec_##x` and `-D __declspec_deprecated=__attribute__((deprecated))`. The SDK's `__declspec(deprecated("msg"))` token-pastes to `__declspec_deprecated("msg")`, which then calls an object-like macro as a function. Fixed by redefining `__declspec_deprecated(...)` as `__attribute__((deprecated(...)))`.
-
-3. **Windows string functions** — The SDK's `fstring.cpp` Windows code path uses `stricmp`, `strnicmp`, `wcsicmp`, `wcsnicmp`, `_vsnwprintf`. These are not declared by the vendored Wine headers. The prelude provides compat `#define` aliases to POSIX equivalents (`strcasecmp`, etc.).
-
-4. **`FoldString` ANSI vs. Unicode** — The SDK's `ftypes.h` defines `UNICODE 1`, but only after `windows.h` has already resolved `WINELIB_NAME_AW(FoldString)` to `FoldStringA`. The prelude defines `UNICODE 1` before including any Windows headers so all `*W` variants are selected.
-
----
-
-## Vendored Wine Headers (`third_party/wine-windows/`)
-
-The Windows API headers used by `wineg++` live at `third_party/wine-windows/include/`. They are the **pre-generated** headers from the `libwine-dev 10.0` Debian package — not raw Wine source. The upstream `wine-mirror/wine` repo only ships `.idl` source files that require `widl` to generate the `.h` counterparts, so it cannot be used as a submodule directly.
-
-Vendoring is the correct cross-distro approach: anyone can `git clone` the repo and build without installing `libwine-dev`, and the headers are consistent across Debian, Fedora, Arch, etc.
-
-**To update to a newer Wine version:**
-1. Download the new `libwine-dev` `.deb` from packages.debian.org (or equivalent)
-2. `dpkg -x libwine-dev_<version>.deb /tmp/wine-dev`
-3. `rsync -a --delete /tmp/wine-dev/usr/include/wine/wine/windows/ third_party/wine-windows/include/`
-4. Test the build, then commit
-
-**Future:** once the project matures, create `github.com/rations/wine-windows-headers` containing only these pre-generated headers and convert `third_party/wine-windows` to a proper submodule pointing there.
-
----
-
-## SDK Source Files Included in Build
-
-In addition to the standard SDK files, `meson.build` includes:
-
-- `third_party/vst3sdk/base/thread/source/flock.cpp` — required by `fobject.cpp` for singleton locking; not included in the SDK's default CMake targets for non-MSVC builds.
-
----
-
-## Known Issues / Current Status
-
-- **Wine prefix auto-scanning not yet implemented** — use `VST3BRIDGE_PLUGIN_PATH` env var to specify a single plugin DLL path for testing (see Running section above).
-- **Audio processing handshake** — the `AudioReady` / `Process` / `ResponseProcess` flow needs end-to-end testing once the full IPC round-trip is exercised with a real plugin.
-- **GUI embedding** — X11 window embedding and GDI frame capture compile but have not been tested end-to-end.
-
----
-
-## Threading Model
-
-**Native process:**
-- DAW audio thread → `PluginProxy::process()` (real-time, no allocation, no blocking)
-- DAW GUI thread → all other VST3 calls
-- Socket I/O: mutex-protected, shared between threads
-
-**Wine host process:**
-- Main thread: Windows message pump interleaved with IPC message dispatch
-- GDI capture thread: ~30fps, writes to `FrameSharedMemory`
-- Audio processing runs on main thread (avoids cross-thread Win32 issues)
-
----
-
-## File Naming Conventions
-
-- `Msg*` structs — IPC message payload types (in `protocol.h`)
-- `*Proxy` classes — native-side proxies (forward calls to Wine host)
-- `*Host` / `*Instance` classes — Wine-side implementations (call real VST3)
-- `*Shm` / `*SharedMemory` — POSIX shared memory wrappers
+- The `gdi_hide_container_` briefly appearing at top-left when a plugin is
+  removed is expected — it's Wine repositioning the HWND as a top-level window
+  for ~1 second before `DeferredWin32Window` posts `WM_CLOSE`.
+- Nembrini preset paths may require the Windows VST3 preset directory to exist
+  under the Wine prefix.

@@ -1,0 +1,9 @@
+[wrap-git]
+url = https://github.com/fraillt/bitsery.git
+# This is tag v5.2.3
+revision = d1a47e06e2104b195a19c73b61f1d5c1dceaa228
+depth = 1
+patch_directory = bitsery
+
+[provide]
+bitsery = bitsery_dep
