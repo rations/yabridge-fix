@@ -1,8 +1,0 @@
-option('bitbridge', type : 'boolean', value : false,
-       description : 'Build 32-bit host for bridging 32-bit plugins')
-
-option('winedbg', type : 'boolean', value : false,
-       description : 'Enable Wine debugging support')
-
-option('tests', type : 'boolean', value : false,
-       description : 'Build unit tests')
