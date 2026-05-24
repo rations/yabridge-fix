@@ -118,7 +118,7 @@ class Configuration {
      * issues, so this is disabled by default. Also, editor resizing won't work
      * reliably when XEmbed is enabled.
      */
-    bool editor_xembed = false;
+    bool editor_xembed = true;
 
     /**
      * The number of times per second we'll handle the event loop. In most

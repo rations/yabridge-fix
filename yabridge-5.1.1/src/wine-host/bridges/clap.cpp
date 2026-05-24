@@ -1055,8 +1055,8 @@ void ClapBridge::register_plugin_instance(
     // This instance ID has already been generated because the host proxy has to
     // be created before the plugin instance
     const size_t instance_id = host_proxy->owner_instance_id();
-    object_instances_.try_emplace(
-        instance_id, plugin, std::move(host_proxy));
+    object_instances_.emplace(
+        instance_id, ClapPluginInstance(plugin, std::move(host_proxy)));
 
     // Every plugin instance gets its own audio thread along with sockets for
     // host->plugin control messages and plugin->host callbacks

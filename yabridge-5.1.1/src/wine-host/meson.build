@@ -15,7 +15,6 @@ if is_64bit_system
     wine_ole32_dep,
     wine_threads_dep,
     xcb_64bit_dep,
-    xcb_composite_64bit_dep,
   ]
   if with_clap
     host_64bit_deps += [clap_dep]
@@ -71,9 +70,7 @@ host_sources = files(
   'bridges/common.cpp',
   'bridges/group.cpp',
   'bridges/vst2.cpp',
-  '../common/frame_shm.cpp',
   'editor.cpp',
-  'gdi_capture.cpp',
   'host.cpp',
   'utils.cpp',
   'xdnd-proxy.cpp',

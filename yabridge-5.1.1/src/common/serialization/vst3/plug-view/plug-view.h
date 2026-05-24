@@ -105,15 +105,12 @@ class YaPlugView : public Steinberg::IPlugView {
          */
         native_size_t parent;
         std::string type;
-        // POSIX SHM name for GDI frame transport (GDI capture mode).
-        std::string frame_shm_name;
 
         template <typename S>
         void serialize(S& s) {
             s.value8b(owner_instance_id);
             s.value8b(parent);
             s.text1b(type, 128);
-            s.text1b(frame_shm_name, 256);
         }
     };
 

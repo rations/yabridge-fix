@@ -46,9 +46,6 @@ if with_vst3
     threads_dep,
     tomlplusplus_dep,
     vst3_sdk_native_dep,
-    dependency('xcb', native : true),
-    dependency('xcb-composite', native : true),
-    dependency('x11', native : true),
   ]
 endif
 
@@ -165,7 +162,6 @@ if with_vst3
     '../common/serialization/vst3/plugin-factory-proxy.cpp',
     '../common/serialization/vst3/process-data.cpp',
     '../common/audio-shm.cpp',
-    '../common/frame_shm.cpp',
     '../common/configuration.cpp',
     '../common/linking.cpp',
     '../common/notifications.cpp',

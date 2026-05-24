@@ -16,15 +16,12 @@
 
 #pragma once
 
-#include <atomic>
 #include <memory>
 #include <optional>
 #include <string>
 
 #include <windows.h>
 #include <function2/function2.hpp>
-
-#include "../common/frame_shm.h"
 
 // Use the native version of xcb
 #pragma push_macro("_WIN32")
@@ -195,10 +192,7 @@ class Editor {
         const Configuration& config,
         Logger& logger,
         const size_t parent_window_handle,
-        std::optional<fu2::unique_function<void()>> timer_proc = std::nullopt,
-        const std::string& frame_shm_name = std::string{});
-
-    ~Editor() noexcept;
+        std::optional<fu2::unique_function<void()>> timer_proc = std::nullopt);
 
     /**
      * Resize the `wrapper_window_` to this new size. We need to manually call
@@ -478,6 +472,14 @@ class Editor {
     bool should_fix_local_coordinates_ = false;
 
     /**
+     * Set to true after do_xembed() has run successfully from a VisibilityNotify
+     * event. Prevents re-sending XEMBED_FOCUS_IN/WINDOW_ACTIVATE on every
+     * subsequent visibility change, which causes visual glitches in plugins.
+     */
+    bool xembed_done_ = false;
+
+
+    /**
      * The atom corresponding to `_NET_ACTIVE_WINDOW`.
      */
     xcb_atom_t active_window_property_;
@@ -492,10 +494,4 @@ class Editor {
      * The atom corresponding to `_XEMBED`.
      */
     xcb_atom_t xcb_xembed_message_;
-
-    // GDI capture state — non-empty only when frame_shm_name was passed.
-    xcb_window_t gdi_hide_container_ = XCB_WINDOW_NONE;
-    std::unique_ptr<yabridge::FrameSharedMemory> gdi_frame_shm_;
-    std::atomic<bool> gdi_capture_running_{false};
-    Win32Thread gdi_capture_thread_;
 };

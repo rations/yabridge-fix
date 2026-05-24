@@ -16,14 +16,8 @@
 
 #pragma once
 
-#include <atomic>
-#include <memory>
-#include <thread>
-
 #include <function2/function2.hpp>
-#include <xcb/xcb.h>
 
-#include "../../../common/frame_shm.h"
 #include "../vst3.h"
 
 /**
@@ -233,22 +227,4 @@ class Vst3PlugViewProxyImpl : public Vst3PlugViewProxy {
      */
     TimedValueCache<tresult> can_resize_cache_;
     std::mutex can_resize_cache_mutex_;
-
-    // GDI capture render state — populated in attached(), torn down in removed()
-    std::unique_ptr<yabridge::FrameSharedMemory> render_shm_;
-    xcb_connection_t* render_x11_ = nullptr;
-    xcb_window_t render_window_ = 0;
-    xcb_gcontext_t render_gc_ = 0;
-    uint8_t render_depth_ = 24;
-    // Stored so the render thread can recreate the window if the connection dies
-    xcb_window_t render_parent_xid_ = 0;
-    uint32_t render_event_mask_ = 0;
-    std::atomic<bool> render_running_{false};
-    std::thread render_thread_;
-
-    // Recreate the XCB connection, window, and GC after a connection failure.
-    // Returns true on success. Called only from the render thread.
-    bool render_reconnect() noexcept;
-
-    void stop_render_thread() noexcept;
 };

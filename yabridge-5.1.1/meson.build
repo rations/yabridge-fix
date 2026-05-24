@@ -224,7 +224,6 @@ winegcc = meson.get_compiler('cpp', native : false)
 
 if is_64bit_system
   xcb_64bit_dep = dependency('xcb')
-  xcb_composite_64bit_dep = dependency('xcb-composite')
 endif
 if with_32bit_libraries or with_bitbridge
   xcb_32bit_dep = winegcc.find_library('xcb')
