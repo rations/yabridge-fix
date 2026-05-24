@@ -1182,15 +1182,10 @@ void Editor::do_xembed() const {
     // XEmbed dance here. See the spec for more information on how this works:
     // https://specifications.freedesktop.org/xembed-spec/xembed-spec-latest.html#lifecycle
 
-    // EMBEDDED_NOTIFY must arrive before ReparentNotify: Wine's
-    // X11DRV_ReparentNotify silently ignores the reparent if embedded==false.
-    // X events are FIFO so flushing here guarantees Wine sees the ClientMessage
-    // before the ReparentNotify that do_reparent() generates.
+    do_reparent(wine_window_, wrapper_window_.window_);
+
     send_xembed_message(wine_window_, xembed_embedded_notify_msg, 0,
                         wrapper_window_.window_, xembed_protocol_version);
-    xcb_flush(x11_connection_.get());
-
-    do_reparent(wine_window_, wrapper_window_.window_);
 
     send_xembed_message(wine_window_, xembed_focus_in_msg, xembed_focus_first,
                         0, 0);
