@@ -23,6 +23,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <unordered_map>
 
 #include <llvm/small-vector.h>
 
@@ -125,6 +126,7 @@ static const HCURSOR arrow_cursor = LoadCursor(nullptr, IDC_ARROW);
 // WM_SETFOCUS directly into the plugin WndProc (bypassing x11drv's focus gate)
 // before WM_LBUTTONDOWN is queued. SendMessage blocks until the handler returns.
 static constexpr UINT WM_GDI_RESTORE_FOCUS = WM_APP + 42;
+static constexpr UINT WM_GDI_DO_WHEEL      = WM_APP + 43;
 
 /**
  * Find the the ancestors for the given window. This returns a list of window
@@ -439,6 +441,14 @@ Editor::Editor(MainContext& main_context,
         const xcb_screen_t* const screen = xcb_setup_roots_iterator(
             xcb_get_setup(x11_connection_.get())).data;
 
+        // Allocate a unique Y slot so each plugin's container is at a different
+        // screen position. This prevents X11 stacking events when a second
+        // plugin maps its container on top of the first, which would cause
+        // x11drv to clear pwndFocus in the first plugin's process.
+        static std::atomic<int32_t> gdi_slot_counter{0};
+        int32_t my_slot = gdi_slot_counter.fetch_add(1, std::memory_order_relaxed);
+        int32_t off_y = my_slot * 32768;
+
         gdi_hide_container_ = xcb_generate_id(x11_connection_.get());
         const uint32_t container_vals[] = {
             screen->black_pixel,     // XCB_CW_BACK_PIXEL
@@ -447,7 +457,7 @@ Editor::Editor(MainContext& main_context,
         };
         xcb_create_window(x11_connection_.get(), XCB_COPY_FROM_PARENT,
                           gdi_hide_container_, screen->root,
-                          0, 0, 4096, 4096,
+                          0, off_y, 4096, 4096,
                           0, XCB_WINDOW_CLASS_INPUT_OUTPUT,
                           screen->root_visual,
                           XCB_CW_BACK_PIXEL | XCB_CW_OVERRIDE_REDIRECT |
@@ -477,6 +487,8 @@ Editor::Editor(MainContext& main_context,
 
         gdi_frame_shm_ = yabridge::FrameSharedMemory::open(frame_shm_name);
         if (gdi_frame_shm_ && gdi_frame_shm_->valid()) {
+            gdi_frame_shm_->set_container_xid(
+                static_cast<uint32_t>(wine_window_));
             gdi_capture_running_.store(true);
             gdi_capture_thread_ = Win32Thread([this]() {
                 xcb_connection_t* cap_conn = xcb_connect(nullptr, nullptr);
@@ -570,14 +582,16 @@ Editor::Editor(MainContext& main_context,
                                             << " fp=" << fp << "\n";
                                     if (stale_ticks >= 120 &&
                                         stale_ticks % 120 == 0) {
-                                        PostMessage(win32_window_.handle_,
-                                                    WM_ACTIVATEAPP, TRUE, 0);
-                                        PostMessage(win32_window_.handle_,
-                                                    WM_ACTIVATE,
-                                                    MAKEWPARAM(WA_ACTIVE, 0),
-                                                    0);
-                                        PostMessage(win32_window_.handle_,
-                                                    WM_SETFOCUS, 0, 0);
+                                        // Post WM_SETFOCUS directly to the
+                                        // plugin child — avoids triggering
+                                        // Wine's XSetInputFocus, which would
+                                        // cause X11 FocusOut on other plugin
+                                        // processes and a WA_INACTIVE cascade.
+                                        HWND plugin_child = GetWindow(
+                                            win32_window_.handle_, GW_CHILD);
+                                        if (plugin_child)
+                                            PostMessage(plugin_child,
+                                                        WM_SETFOCUS, 0, 0);
                                     }
                                 } else {
                                     if (stale_ticks >= 120)
@@ -651,22 +665,18 @@ Editor::Editor(MainContext& main_context,
                             case 2:
                                 drag_target = target;
                                 {
-                                    // Inject WM_SETFOCUS directly via
-                                    // WM_GDI_RESTORE_FOCUS (runs on main
-                                    // thread via SendMessage), then queue
-                                    // WM_LBUTTONDOWN. No xcb_set_input_focus:
-                                    // fighting another Wine process for X11
-                                    // focus is a race we cannot win.
+                                    // WM_GDI_RESTORE_FOCUS sets foreground
+                                    // via AttachThreadInput+SetForegroundWindow
+                                    // and dispatches WM_LBUTTONDOWN synchronously
+                                    // (same-thread SendMessage) before x11drv's
+                                    // async FocusOut can reset fgw to 0.
+                                    // Coordinates encoded in lParam.
                                     SendMessage(win32_window_.handle_,
                                                 WM_GDI_RESTORE_FOCUS,
-                                                (WPARAM)target, 0);
-
-                                    const BOOL ok = PostMessage(
-                                        target, WM_LBUTTONDOWN, MK_LBUTTON,
-                                        client_coords);
+                                                (WPARAM)target, client_coords);
                                     std::cerr
                                         << "[yabridge gdi] PostMessage"
-                                        << " WM_LBUTTONDOWN ok=" << ok
+                                        << " WM_LBUTTONDOWN ok=1"
                                         << " target=" << target << "\n";
                                 }
                                 break;
@@ -692,10 +702,13 @@ Editor::Editor(MainContext& main_context,
                                             client_coords);
                                 break;
                             case 8:
-                                // WM_MOUSEWHEEL lParam must be screen coords.
-                                PostMessage(target, WM_MOUSEWHEEL,
-                                            MAKEWPARAM(0, input_ev.wheel_delta),
-                                            screen_coords);
+                                // Route wheel through the focus-restoration
+                                // path so the plugin isn't ignored due to
+                                // missing foreground/focus state.
+                                gdi_pending_wheel_ = {
+                                    target, input_ev.wheel_delta, screen_coords};
+                                SendMessage(win32_window_.handle_,
+                                            WM_GDI_DO_WHEEL, 0, 0);
                                 break;
                             default:
                                 break;
@@ -1522,6 +1535,58 @@ void Editor::do_xembed() const {
     xcb_flush(x11_connection_.get());
 }
 
+// Subclass proc installed on the plugin's own HWND in GDI capture mode.
+// Suppresses WM_ACTIVATE(WA_INACTIVE) so VSTGUI's isActive_ flag is never
+// cleared by Wine x11drv when another plugin process maps a window and steals
+// X11 focus. The original wndproc is stored as a window property.
+static LRESULT CALLBACK gdi_activate_guard(HWND hwnd,
+                                            UINT msg,
+                                            WPARAM wParam,
+                                            LPARAM lParam) {
+    if (msg == WM_ACTIVATE && LOWORD(wParam) == WA_INACTIVE) {
+        std::cerr << "[yabridge gdi] guard blocked WA_INACTIVE hwnd=" << hwnd << "\n";
+        return 0;
+    }
+    // Wine's focus_out() sends WM_KILLFOCUS to the focused child when the
+    // wrapper's X11 window receives FocusOut (e.g. when Track 2 maps its
+    // window). VSTGUI responds by clearing isActive_ and mouse tracking state,
+    // causing subsequent WM_LBUTTONDOWN to be silently ignored.
+    if (msg == WM_KILLFOCUS) {
+        std::cerr << "[yabridge gdi] guard KILLFOCUS pass-through hwnd=" << hwnd << "\n";
+        ReleaseCapture();
+        // fall through — VSTGUI resets cleanly; WM_GDI_RESTORE_FOCUS calls SetFocus
+        // before each LBD to reactivate
+    }
+    // WM_CANCELMODE from DefWindowProc on the wrapper calls ReleaseCapture(),
+    // which broadcasts WM_CAPTURECHANGED and disrupts any in-progress drag.
+    if (msg == WM_CANCELMODE) {
+        std::cerr << "[yabridge gdi] guard blocked WM_CANCELMODE hwnd=" << hwnd << "\n";
+        return 0;
+    }
+    if (msg == WM_SETFOCUS)
+        std::cerr << "[yabridge gdi] guard SETFOCUS hwnd=" << hwnd << "\n";
+    auto orig = reinterpret_cast<WNDPROC>(reinterpret_cast<uintptr_t>(
+        GetPropW(hwnd, L"yab_orig_wndproc")));
+    LRESULT r = orig ? CallWindowProcW(orig, hwnd, msg, wParam, lParam)
+                     : DefWindowProcW(hwnd, msg, wParam, lParam);
+    if (msg == WM_LBUTTONDOWN)
+        std::cerr << "[yabridge gdi] guard LBD done: cap=" << GetCapture()
+                  << " hwnd=" << hwnd << "\n";
+    return r;
+}
+
+static BOOL CALLBACK subclass_child_with_guard(HWND child, LPARAM) {
+    if (GetPropW(child, L"yab_orig_wndproc")) return TRUE;
+    WNDPROC orig = reinterpret_cast<WNDPROC>(
+        GetWindowLongPtrW(child, GWLP_WNDPROC));
+    SetPropW(child, L"yab_orig_wndproc",
+             reinterpret_cast<HANDLE>(reinterpret_cast<uintptr_t>(orig)));
+    SetWindowLongPtrW(child, GWLP_WNDPROC,
+                     reinterpret_cast<LONG_PTR>(gdi_activate_guard));
+    std::cerr << "[yabridge gdi] subclassed child=" << child << "\n";
+    return TRUE;
+}
+
 LRESULT CALLBACK window_proc(HWND handle,
                              UINT message,
                              WPARAM wParam,
@@ -1547,6 +1612,27 @@ LRESULT CALLBACK window_proc(HWND handle,
         // Setting `SWP_NOCOPYBITS` somewhat reduces flickering on
         // `fix_local_coordinates()` calls with plugins that don't do double
         // buffering since it speeds up the redrawing process.
+        case WM_ACTIVATE: {
+            // In GDI mode, block WA_INACTIVE on the wrapper window itself.
+            // Wine x11drv may target this window (wine_window_ is its X11 peer)
+            // rather than the plugin child. Log both paths so we can confirm
+            // which window actually receives the message.
+            auto editor = reinterpret_cast<Editor*>(
+                GetWindowLongPtr(handle, GWLP_USERDATA));
+            if (editor && editor->gdi_frame_shm_) {
+                if (LOWORD(wParam) == WA_INACTIVE) {
+                    // Pass WA_INACTIVE to DefWindowProc so Wine's wineserver
+                    // records the deactivation and foreground transfers correctly.
+                    // VSTGUI lives on plugin_window (a child), which never
+                    // receives WM_ACTIVATE from Win32, so isActive_ is unaffected.
+                    std::cerr << "[yabridge gdi] WA_INACTIVE on wrapper (fwd DefWindowProc)\n";
+                    break;
+                }
+                std::cerr << "[yabridge gdi] WA_ACTIVE on wrapper wa="
+                          << LOWORD(wParam) << "\n";
+            }
+            break;
+        }
         case WM_WINDOWPOSCHANGING: {
             auto editor = reinterpret_cast<Editor*>(
                 GetWindowLongPtr(handle, GWLP_USERDATA));
@@ -1558,27 +1644,46 @@ LRESULT CALLBACK window_proc(HWND handle,
             info->flags |= SWP_DEFERERASE | SWP_NOCOPYBITS;
         } break;
         case WM_GDI_RESTORE_FOCUS: {
-            // SendMessage'd from the GDI capture thread so this runs
-            // synchronously on the main thread before WM_LBUTTONDOWN is
-            // queued. WM_SETFOCUS alone does not restore VSTGUI's isActive_
-            // flag after Wine x11drv sends WM_ACTIVATE(WA_INACTIVE) when
-            // another plugin's gdi_hide_container_ maps at (0,0). Send the
-            // full sequence: WM_NCACTIVATE → WM_ACTIVATE(WA_CLICKACTIVE) →
-            // WM_SETFOCUS, all synchronous before WM_LBUTTONDOWN is queued.
             {
+                auto editor = reinterpret_cast<Editor*>(
+                    GetWindowLongPtr(handle, GWLP_USERDATA));
                 HWND focus_target = reinterpret_cast<HWND>(wParam);
+                // Click coordinates passed from capture thread.
+                const LPARAM click_pos = lParam;
                 HWND plugin_window = GetWindow(handle, GW_CHILD);
-                if (!focus_target) focus_target = plugin_window;
-                if (plugin_window) {
-                    SendMessage(plugin_window, WM_NCACTIVATE, TRUE, 0);
-                    SendMessage(plugin_window, WM_ACTIVATE,
-                                MAKEWPARAM(WA_CLICKACTIVE, 0), 0);
+                if (!focus_target) focus_target = plugin_window ? plugin_window : handle;
+                if (editor && !editor->gdi_plugin_subclassed_) {
+                    // Do NOT guard the wrapper (handle): it must pass
+                    // WA_INACTIVE to DefWindowProc so Wine's wineserver can
+                    // transfer the foreground window correctly between plugins.
+                    // Guard only plugin_window and its children, which is where
+                    // VSTGUI's isActive_ lives.
+                    if (plugin_window)
+                        subclass_child_with_guard(plugin_window, 0);
+                    EnumChildWindows(handle, subclass_child_with_guard, 0);
+                    editor->gdi_plugin_subclassed_ = true;
                 }
-                if (focus_target)
-                    SendMessage(focus_target, WM_SETFOCUS, 0, 0);
-                std::cerr << "[yabridge gdi] SetFocus target=" << focus_target
-                          << " GetFocus=" << GetFocus() << "\n";
+                SetFocus(focus_target);
+                if (click_pos)
+                    SendMessage(focus_target, WM_LBUTTONDOWN, MK_LBUTTON, click_pos);
             }
+            return 0;
+        } break;
+        case WM_GDI_DO_WHEEL: {
+            auto editor = reinterpret_cast<Editor*>(
+                GetWindowLongPtr(handle, GWLP_USERDATA));
+            if (!editor || !editor->gdi_frame_shm_)
+                return 0;
+            HWND target      = editor->gdi_pending_wheel_.target;
+            int16_t delta    = editor->gdi_pending_wheel_.delta;
+            LPARAM sc        = editor->gdi_pending_wheel_.screen_coords;
+            if (!target) target = GetWindow(handle, GW_CHILD);
+            if (!target) target = handle;
+            SetForegroundWindow(handle);
+            SetActiveWindow(handle);
+            SetFocus(target);
+            SendMessage(target, WM_MOUSEWHEEL,
+                        MAKEWPARAM(0, (WORD)(int16_t)delta), sc);
             return 0;
         } break;
         case WM_TIMER: {
@@ -1626,6 +1731,19 @@ LRESULT CALLBACK window_proc(HWND handle,
                 SetCursor(arrow_cursor);
             }
         } break;
+        // Wine's focus_out() sends WM_CANCELMODE directly to the foreground
+        // window (this wrapper) when its X11 window receives FocusOut. Block it
+        // in GDI mode to prevent DefWindowProc from calling ReleaseCapture(),
+        // which would send WM_CAPTURECHANGED to any child holding mouse capture.
+        case WM_CANCELMODE: {
+            auto editor = reinterpret_cast<Editor*>(
+                GetWindowLongPtr(handle, GWLP_USERDATA));
+            if (editor && editor->gdi_frame_shm_) {
+                std::cerr << "[yabridge gdi] window_proc blocked WM_CANCELMODE on wrapper\n";
+                return 0;
+            }
+            break;
+        }
         // NOTE: Needed for our `is_cursor_in_wine_window()` implementation. Our
         //       `win32_window_` extends way past the visible plugin GUI. And
         //       even though it will appear nicely clipped on screen,

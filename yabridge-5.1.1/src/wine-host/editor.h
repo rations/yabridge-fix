@@ -302,6 +302,8 @@ class Editor {
      */
     const bool use_xembed_;
 
+    friend LRESULT CALLBACK window_proc(HWND, UINT, WPARAM, LPARAM);
+
    private:
     /**
      * Get the X11 event mask containing the current keyboard modifiers. Because
@@ -498,4 +500,12 @@ class Editor {
     std::unique_ptr<yabridge::FrameSharedMemory> gdi_frame_shm_;
     std::atomic<bool> gdi_capture_running_{false};
     Win32Thread gdi_capture_thread_;
+    bool gdi_plugin_subclassed_ = false;
+    // Wheel event staged here by the capture thread before sending
+    // WM_GDI_DO_WHEEL. Race-free: SendMessage blocks until handler returns.
+    struct {
+        HWND target = nullptr;
+        int16_t delta = 0;
+        LPARAM screen_coords = 0;
+    } gdi_pending_wheel_;
 };

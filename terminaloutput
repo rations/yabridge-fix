@@ -3,891 +3,753 @@ jack: created client
 jack: setting TIME_CRITICAL = 64
 LC_NUMERIC / LANG is set to 'en_AU.UTF-8', overriding LC_NUMERIC environment to POSIX
 jack: activated client
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] Initializing yabridge version 5.1.1
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] library:       '/home/human/.local/share/yabridge/libyabridge-vst3.so'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] host:          '/home/human/.local/share/yabridge/yabridge-host.exe'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] plugin:        '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA Analog Rack Chorus.vst3/Contents/x86_64-win/NA Analog Rack Chorus.vst3'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] plugin type:   'VST3'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] realtime:      'yes'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] sockets:       '/run/user/1000/yabridge-NA Analog Rack Chorus-CIKQblsw'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] wine prefix:   '/home/human/.wine'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] wine version:  '11.8 (Staging)'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] 
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] config from:   '<defaults>'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] hosting mode:  'individually, 64-bit'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] other options: '<none>'
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] 
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] Enabled features:
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] - CLAP support
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] - VST3 support
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] 
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] ERROR: ld.so: object 'libgtk3-nocsd.so.0' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 002c:fixme:winediag:loader_init wine-staging 11.8 is a testing version containing experimental patches.
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 002c:fixme:winediag:loader_init Please mention your exact version when filing bug reports on winehq.org.
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 0034:fixme:ver:GetCurrentPackageId (000000000031FEB0 0000000000000000): stub
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 002c:fixme:ver:GetCurrentPackageId (000000000031FEB0 0000000000000000): stub
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 0024:fixme:winediag:loader_init wine-staging 11.8 is a testing version containing experimental patches.
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 0024:fixme:winediag:loader_init Please mention your exact version when filing bug reports on winehq.org.
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] libEGL warning: egl: failed to create dri2 screen
-20:57:21 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] libEGL warning: egl: failed to create dri2 screen
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] Initializing yabridge host version 5.1.1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] Preparing to load VST3 plugin at '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA Analog Rack Chorus.vst3/Contents/x86_64-win/NA Analog Rack Chorus.vst3'
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] Finished initializing '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA Analog Rack Chorus.vst3/Contents/x86_64-win/NA Analog Rack Chorus.vst3'
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 0138:fixme:ver:GetCurrentPackageId (00000000017AFF50 0000000000000000): stub
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UIViewSettings", {3694dbf9-8f68-44be-8ff5-195c98ede8a6}, 00000000007985B0): semi-stub
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:win:RegisterTouchWindow hwnd 0000000000010070, flags 0 stub!
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 233 1 0000000000000000
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 4a 1 0000000000000000
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 49 1 0000000000000000
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Game: yabridge-host.exe.so
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  DXVK: v2.4.1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x6ffff9c25680
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Built-in extension providers:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Platform WSI
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    OpenVR
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    OpenXR
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  OpenVR: could not open registry key, status 2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  OpenVR: Failed to locate module
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Enabled instance extensions:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_surface_maintenance1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_get_surface_capabilities2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_surface
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_win32_surface
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] warn:  Skipping CPU adapter: llvmpipe (LLVM 19.1.7, 256 bits)
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Memory Heap[0]: 
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Size: 8188 MiB
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Flags: 0x1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Memory Heap[1]: 
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Size: 11867 MiB
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Flags: 0x0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] err:   getMonitorEdid: Failed to load functions from setupapi.
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:win:RegisterSuspendResumeNotification 0000000000010070, 0: stub.
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] warn:  DxgiOutput::WaitForVBlank: Inaccurate
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Setting timer interval to 1000 us
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Memory Heap[0]: 
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Size: 8188 MiB
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Flags: 0x1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Memory Heap[1]: 
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Size: 11867 MiB
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Flags: 0x0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  D3D11InternalCreateDevice: Maximum supported feature level: D3D_FEATURE_LEVEL_12_1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  D3D11InternalCreateDevice: Using feature level D3D_FEATURE_LEVEL_10_0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Device properties:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Device : NVIDIA GeForce RTX 4060
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Enabled device extensions:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_attachment_feedback_loop_layout
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_conservative_rasterization
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_custom_border_color
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_depth_bias_control
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_depth_clip_enable
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_extended_dynamic_state3
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_fragment_shader_interlock
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_graphics_pipeline_library
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_hdr_metadata
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_line_rasterization
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_memory_priority
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_non_seamless_cube_map
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_robustness2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_shader_module_identifier
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_swapchain_maintenance1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_transform_feedback
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_EXT_vertex_attribute_divisor
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_external_memory_win32
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_external_semaphore_win32
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_maintenance5
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_pipeline_library
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_present_id
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_present_wait
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_swapchain
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_KHR_win32_keyed_mutex
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_NVX_binary_import
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_NVX_image_view_handle
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_NV_descriptor_pool_overallocation
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    VK_NV_raw_access_chains
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Device features:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    robustBufferAccess                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    fullDrawIndexUint32                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    imageCubeArray                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    independentBlend                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    geometryShader                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    tessellationShader                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sampleRateShading                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    dualSrcBlend                           : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    logicOp                                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    multiDrawIndirect                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    drawIndirectFirstInstance              : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthClamp                             : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthBiasClamp                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    fillModeNonSolid                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthBounds                            : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    wideLines                              : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    multiViewport                          : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    samplerAnisotropy                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    textureCompressionBC                   : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    occlusionQueryPrecise                  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    pipelineStatisticsQuery                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    vertexPipelineStoresAndAtomics         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    fragmentStoresAndAtomics               : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderImageGatherExtended              : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderClipDistance                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderCullDistance                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderFloat64                          : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderInt64                            : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    variableMultisampleRate                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderResourceResidency                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderResourceMinLod                   : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseBinding                          : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidencyBuffer                  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidencyImage2D                 : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidencyImage3D                 : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidency2Samples                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidency4Samples                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidency8Samples                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidency16Samples               : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    sparseResidencyAliased                 : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Vulkan 1.1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderDrawParameters                   : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Vulkan 1.2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    samplerMirrorClampToEdge               : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    drawIndirectCount                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    samplerFilterMinmax                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    hostQueryReset                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    timelineSemaphore                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    bufferDeviceAddress                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderOutputViewportIndex              : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderOutputLayer                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    vulkanMemoryModel                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Vulkan 1.3
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    robustImageAccess                      : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    pipelineCreationCacheControl           : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderDemoteToHelperInvocation         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderZeroInitializeWorkgroupMemory    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    synchronization2                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    dynamicRendering                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_AMD_shader_fragment_mask
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_attachment_feedback_loop_layout
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    attachmentFeedbackLoopLayout           : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_conservative_rasterization
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_custom_border_color
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    customBorderColors                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    customBorderColorWithoutFormat         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_depth_clip_enable
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthClipEnable                        : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_depth_bias_control
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthBiasControl                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    leastRepresentableValueForceUnormRepresentation : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    floatRepresentation                    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    depthBiasExact                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_extended_dynamic_state3
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extDynamicState3AlphaToCoverageEnable  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extDynamicState3DepthClipEnable        : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extDynamicState3RasterizationSamples   : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extDynamicState3SampleMask             : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extDynamicState3LineRasterizationMode  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_fragment_shader_interlock
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    fragmentShaderSampleInterlock          : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    fragmentShaderPixelInterlock           : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_full_screen_exclusive
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_graphics_pipeline_library
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    graphicsPipelineLibrary                : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_line_rasterization
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    rectangularLines                       : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    smoothLines                            : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_memory_budget
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_memory_priority
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    memoryPriority                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_non_seamless_cube_map
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    nonSeamlessCubeMap                     : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_robustness2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    robustBufferAccess2                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    robustImageAccess2                     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    nullDescriptor                         : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_shader_module_identifier
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderModuleIdentifier                 : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_shader_stencil_export
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_swapchain_colorspace
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_swapchain_maintenance1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    swapchainMaintenance1                  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_hdr_metadata
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_transform_feedback
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    transformFeedback                      : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    geometryStreams                        : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_EXT_vertex_attribute_divisor
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    vertexAttributeInstanceRateDivisor     : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    vertexAttributeInstanceRateZeroDivisor : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_external_memory_win32
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_external_semaphore_win32
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_maintenance5
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    maintenance5                           : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_present_id
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    presentId                              : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_present_wait
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    presentWait                            : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_NV_descriptor_pool_overallocation
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    descriptorPoolOverallocation           : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_NV_raw_access_chains
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    shaderRawAccessChains                  : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_NVX_binary_import
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_NVX_image_view_handle
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  VK_KHR_win32_keyed_mutex
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    extension supported                    : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Queue families:
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Graphics : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Transfer : 1
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:    Sparse   : 0
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  Memory type mask for sparse resources: 0x2
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] warn:  DXVK: No state cache file found
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  DXVK: Graphics pipeline libraries supported
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:d2d:d2d_d3d_create_render_target Ignoring render target usage 0x2.
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] info:  DXVK: Using 20 compiler threads
-20:57:22 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:dwrite:dwritefactory_CreateMonitorRenderingParams (0000000000000001): monitor setting ignored
-[yabridge native 46139909] render_window=60817408
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] grab+focus cxid=0
-[yabridge native 46139909] click type=2 x=271 y=154
-20:57:24 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=271 y=154
-20:57:24 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x10070 GetFocus=0x10070
-20:57:24 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:24 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] STALE fp=0
-[yabridge native 46139909] click type=3 x=254 y=127
-20:57:25 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=254 y=127
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:27 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46139909] blitted=290/5s xcb_err=0
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:30 [Amped - Volcano-9STdlqwx] Initializing yabridge version 5.1.1
-20:57:30 [Amped - Volcano-9STdlqwx] library:       '/home/human/.local/share/yabridge/libyabridge-vst3.so'
-20:57:30 [Amped - Volcano-9STdlqwx] host:          '/home/human/.local/share/yabridge/yabridge-host.exe'
-20:57:30 [Amped - Volcano-9STdlqwx] plugin:        '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
-20:57:30 [Amped - Volcano-9STdlqwx] plugin type:   'VST3'
-20:57:30 [Amped - Volcano-9STdlqwx] realtime:      'yes'
-20:57:30 [Amped - Volcano-9STdlqwx] sockets:       '/run/user/1000/yabridge-Amped - Volcano-9STdlqwx'
-20:57:30 [Amped - Volcano-9STdlqwx] wine prefix:   '/home/human/.wine'
-20:57:30 [Amped - Volcano-9STdlqwx] wine version:  '11.8 (Staging)'
-20:57:30 [Amped - Volcano-9STdlqwx] 
-20:57:30 [Amped - Volcano-9STdlqwx] config from:   '<defaults>'
-20:57:30 [Amped - Volcano-9STdlqwx] hosting mode:  'individually, 64-bit'
-20:57:30 [Amped - Volcano-9STdlqwx] other options: '<none>'
-20:57:30 [Amped - Volcano-9STdlqwx] 
-20:57:30 [Amped - Volcano-9STdlqwx] Enabled features:
-20:57:30 [Amped - Volcano-9STdlqwx] - CLAP support
-20:57:30 [Amped - Volcano-9STdlqwx] - VST3 support
-20:57:30 [Amped - Volcano-9STdlqwx] 
-20:57:30 [Amped - Volcano-9STdlqwx] [Wine STDERR] ERROR: ld.so: object 'libgtk3-nocsd.so.0' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
-20:57:30 [Amped - Volcano-9STdlqwx] [Wine STDERR] Initializing yabridge host version 5.1.1
-20:57:30 [Amped - Volcano-9STdlqwx] [Wine STDERR] Preparing to load VST3 plugin at '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
-20:57:30 [Amped - Volcano-9STdlqwx] [Wine STDERR] Finished initializing '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
-20:57:30 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0274:fixme:kernelbase:AppPolicyGetThreadInitializationType FFFFFFFFFFFFFFFA, 0000000002A2FF50
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UIViewSettings", {3694dbf9-8f68-44be-8ff5-195c98ede8a6}, 000000000397DF00): semi-stub
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:win:RegisterTouchWindow hwnd 000000000001009C, flags 0 stub!
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 233 1 0000000000000000
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 4a 1 0000000000000000
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 49 1 0000000000000000
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:err:ole:com_get_class_object class {4ce576fa-83dc-4f88-951c-9d0782b4e376} not registered
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:err:ole:create_server class {4ce576fa-83dc-4f88-951c-9d0782b4e376} not registered
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:err:ole:com_get_class_object no class object {4ce576fa-83dc-4f88-951c-9d0782b4e376} could be created for context 0x6
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Game: yabridge-host.exe.so
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  DXVK: v2.4.1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x6ffff9c25680
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Built-in extension providers:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Platform WSI
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    OpenVR
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    OpenXR
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  OpenVR: could not open registry key, status 2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  OpenVR: Failed to locate module
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Enabled instance extensions:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_surface_maintenance1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_get_surface_capabilities2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_surface
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_win32_surface
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] warn:  Skipping CPU adapter: llvmpipe (LLVM 19.1.7, 256 bits)
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Memory Heap[0]: 
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Size: 8188 MiB
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Flags: 0x1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Memory Heap[1]: 
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Size: 11867 MiB
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Flags: 0x0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  D3D11InternalCreateDevice: Maximum supported feature level: D3D_FEATURE_LEVEL_12_1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  D3D11InternalCreateDevice: Using feature level D3D_FEATURE_LEVEL_10_0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Device properties:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Device : NVIDIA GeForce RTX 4060
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Enabled device extensions:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_attachment_feedback_loop_layout
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_conservative_rasterization
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_custom_border_color
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_depth_bias_control
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_depth_clip_enable
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_extended_dynamic_state3
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_fragment_shader_interlock
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_graphics_pipeline_library
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_hdr_metadata
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_line_rasterization
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_memory_priority
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_non_seamless_cube_map
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_robustness2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_shader_module_identifier
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_swapchain_maintenance1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_transform_feedback
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_EXT_vertex_attribute_divisor
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_external_memory_win32
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_external_semaphore_win32
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_maintenance5
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_pipeline_library
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_present_id
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_present_wait
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_swapchain
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_KHR_win32_keyed_mutex
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_NVX_binary_import
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_NVX_image_view_handle
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_NV_descriptor_pool_overallocation
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    VK_NV_raw_access_chains
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Device features:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    robustBufferAccess                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    fullDrawIndexUint32                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    imageCubeArray                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    independentBlend                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    geometryShader                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    tessellationShader                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sampleRateShading                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    dualSrcBlend                           : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    logicOp                                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    multiDrawIndirect                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    drawIndirectFirstInstance              : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthClamp                             : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthBiasClamp                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    fillModeNonSolid                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthBounds                            : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    wideLines                              : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    multiViewport                          : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    samplerAnisotropy                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    textureCompressionBC                   : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    occlusionQueryPrecise                  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    pipelineStatisticsQuery                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    vertexPipelineStoresAndAtomics         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    fragmentStoresAndAtomics               : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderImageGatherExtended              : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderClipDistance                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderCullDistance                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderFloat64                          : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderInt64                            : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    variableMultisampleRate                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderResourceResidency                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderResourceMinLod                   : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseBinding                          : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidencyBuffer                  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidencyImage2D                 : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidencyImage3D                 : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidency2Samples                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidency4Samples                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidency8Samples                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidency16Samples               : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    sparseResidencyAliased                 : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Vulkan 1.1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderDrawParameters                   : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Vulkan 1.2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    samplerMirrorClampToEdge               : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    drawIndirectCount                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    samplerFilterMinmax                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    hostQueryReset                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    timelineSemaphore                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    bufferDeviceAddress                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderOutputViewportIndex              : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderOutputLayer                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    vulkanMemoryModel                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Vulkan 1.3
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    robustImageAccess                      : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    pipelineCreationCacheControl           : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderDemoteToHelperInvocation         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderZeroInitializeWorkgroupMemory    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    synchronization2                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    dynamicRendering                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_AMD_shader_fragment_mask
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_attachment_feedback_loop_layout
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    attachmentFeedbackLoopLayout           : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_conservative_rasterization
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_custom_border_color
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    customBorderColors                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    customBorderColorWithoutFormat         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_depth_clip_enable
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthClipEnable                        : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_depth_bias_control
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthBiasControl                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    leastRepresentableValueForceUnormRepresentation : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    floatRepresentation                    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    depthBiasExact                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_extended_dynamic_state3
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extDynamicState3AlphaToCoverageEnable  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extDynamicState3DepthClipEnable        : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extDynamicState3RasterizationSamples   : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extDynamicState3SampleMask             : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extDynamicState3LineRasterizationMode  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_fragment_shader_interlock
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    fragmentShaderSampleInterlock          : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    fragmentShaderPixelInterlock           : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_full_screen_exclusive
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_graphics_pipeline_library
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    graphicsPipelineLibrary                : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_line_rasterization
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    rectangularLines                       : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    smoothLines                            : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_memory_budget
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_memory_priority
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    memoryPriority                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_non_seamless_cube_map
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    nonSeamlessCubeMap                     : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_robustness2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    robustBufferAccess2                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    robustImageAccess2                     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    nullDescriptor                         : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_shader_module_identifier
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderModuleIdentifier                 : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_shader_stencil_export
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_swapchain_colorspace
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_swapchain_maintenance1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    swapchainMaintenance1                  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_hdr_metadata
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_transform_feedback
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    transformFeedback                      : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    geometryStreams                        : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_EXT_vertex_attribute_divisor
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    vertexAttributeInstanceRateDivisor     : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    vertexAttributeInstanceRateZeroDivisor : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_external_memory_win32
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_external_semaphore_win32
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_maintenance5
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    maintenance5                           : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_present_id
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    presentId                              : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_present_wait
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    presentWait                            : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_NV_descriptor_pool_overallocation
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    descriptorPoolOverallocation           : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_NV_raw_access_chains
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    shaderRawAccessChains                  : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_NVX_binary_import
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_NVX_image_view_handle
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  VK_KHR_win32_keyed_mutex
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    extension supported                    : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Queue families:
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Graphics : 0
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Transfer : 1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:    Sparse   : 0
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  Memory type mask for sparse resources: 0x2
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] warn:  DXVK: No state cache file found
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  DXVK: Graphics pipeline libraries supported
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:d2d:d2d_d3d_create_render_target Ignoring render target usage 0x2.
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] info:  DXVK: Using 20 compiler threads
-20:57:31 [Amped - Volcano-9STdlqwx] [Wine STDERR] 0264:fixme:dwrite:dwritefactory_CreateMonitorRenderingParams (0000000000000001): monitor setting ignored
-[yabridge native 46141169] render_window=75497472
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] blitted=282/5s xcb_err=0
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:33 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] grab+focus cxid=0
-[yabridge native 46141169] click type=2 x=670 y=505
-20:57:33 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=2 x=670 y=505
-20:57:33 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] SetFocus target=0x1009c GetFocus=0x1009c
-20:57:33 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:34 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] STALE fp=1664
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] click type=3 x=652 y=492
-20:57:34 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=3 x=652 y=492
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] blitted=234/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] grab+focus cxid=0
-[yabridge native 46139909] click type=2 x=324 y=53
-20:57:36 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=324 y=53
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x10070 GetFocus=0
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
-[yabridge native 46139909] click type=3 x=325 y=51
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=325 y=51
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:37 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46139909] blitted=253/5s xcb_err=0
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] grab+focus cxid=0
-[yabridge native 46139909] click type=2 x=248 y=146
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=248 y=146
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x10070 GetFocus=0
-20:57:37 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] click type=3 x=249 y=132
-20:57:38 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=249 y=132
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-20:57:38 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] grab+focus cxid=0
-[yabridge native 46139909] click type=2 x=264 y=159
-20:57:40 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=264 y=159
-20:57:40 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x10070 GetFocus=0
-20:57:40 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
-[yabridge native 46139909] click type=3 x=257 y=111
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:41 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=257 y=111
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] blitted=236/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46139909] health: viewable=1
-[yabridge native 46139909] siblings=1 at_top=1
-[yabridge native 46139909] blitted=263/5s xcb_err=0
-20:57:42 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:win:UnregisterSuspendResumeNotification 00000000DEADBEEF: stub.
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:44 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UIViewSettings", {3694dbf9-8f68-44be-8ff5-195c98ede8a6}, 000000000079AB30): semi-stub
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:win:RegisterTouchWindow hwnd 0000000000020070, flags 0 stub!
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000020070 233 1 0000000000000000
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000020070 4a 1 0000000000000000
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:msg:ChangeWindowMessageFilterEx 0000000000020070 49 1 0000000000000000
-20:57:46 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] 00ec:fixme:win:RegisterSuspendResumeNotification 0000000000020070, 0: stub.
-[yabridge native 46143475] render_window=60817408
-[yabridge native 46141169] blitted=229/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] grab+focus cxid=0
-[yabridge native 46143475] click type=2 x=268 y=165
-20:57:47 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=268 y=165
-20:57:47 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x20070 GetFocus=0x20070
-20:57:47 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x20070
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:48 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] STALE fp=0
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] click type=3 x=263 y=74
-20:57:49 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=263 y=74
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] grab+focus cxid=0
-[yabridge native 46143475] click type=2 x=418 y=162
-20:57:50 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=418 y=162
-20:57:50 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x20070 GetFocus=0x20066
-20:57:50 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x20070
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-20:57:50 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] blitted=260/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] blitted=235/5s xcb_err=0
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-20:57:52 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] click type=3 x=417 y=101
-20:57:52 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=417 y=101
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] grab+focus cxid=0
-[yabridge native 46141169] click type=2 x=650 y=246
-20:57:52 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=2 x=650 y=246
-20:57:52 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] SetFocus target=0x1009c GetFocus=0
-20:57:52 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
-[yabridge native 46141169] click type=3 x=650 y=246
-20:57:53 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=3 x=650 y=246
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] grab+focus cxid=0
-[yabridge native 46141169] click type=2 x=661 y=524
-20:57:55 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=2 x=661 y=524
-20:57:55 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] SetFocus target=0x1009c GetFocus=0
-20:57:55 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] click type=3 x=657 y=537
-20:57:56 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=3 x=657 y=537
-[yabridge native 46143475] blitted=263/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] blitted=236/5s xcb_err=0
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-20:57:57 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] grab+focus cxid=0
-[yabridge native 46141169] click type=2 x=432 y=494
-20:57:57 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=2 x=432 y=494
-20:57:57 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] SetFocus target=0x1009c GetFocus=0
-20:57:57 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:57:57 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] click type=3 x=420 y=489
-20:57:58 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=3 x=420 y=489
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] grab+focus cxid=0
-[yabridge native 46141169] click type=2 x=330 y=490
-20:57:58 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=2 x=330 y=490
-20:57:58 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] SetFocus target=0x1009c GetFocus=0
-20:57:58 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] click type=3 x=320 y=499
-20:57:59 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] click type=3 x=320 y=499
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] blitted=248/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] blitted=232/5s xcb_err=0
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] grab+focus cxid=0
-[yabridge native 46143475] click type=2 x=265 y=166
-20:58:02 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=265 y=166
-20:58:02 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x20070 GetFocus=0x20066
-20:58:02 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x20070
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-20:58:03 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] click type=3 x=252 y=59
-20:58:03 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=252 y=59
-20:58:03 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] grab+focus cxid=0
-[yabridge native 46143475] click type=2 x=423 y=161
-20:58:04 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=2 x=423 y=161
-20:58:04 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] SetFocus target=0x20070 GetFocus=0x20066
-20:58:04 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x20070
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] click type=3 x=397 y=140
-20:58:06 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] click type=3 x=397 y=140
-[yabridge native 46143475] blitted=263/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46141169] blitted=241/5s xcb_err=0
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-20:58:09 [NA Analog Rack Chorus-CIKQblsw] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-20:58:09 [Amped - Volcano-9STdlqwx] [Wine STDERR] [yabridge gdi] capture fps ~60
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46143475] blitted=257/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
-[yabridge native 46141169] blitted=236/5s xcb_err=0
-[yabridge native 46141169] health: viewable=1
-[yabridge native 46141169] siblings=1 at_top=1
-[yabridge native 46143475] health: viewable=1
-[yabridge native 46143475] siblings=1 at_top=1
+14:36:31 [NA 808-6JRdijos] Initializing yabridge version 5.1.1
+14:36:31 [NA 808-6JRdijos] library:       '/home/human/.local/share/yabridge/libyabridge-vst3.so'
+14:36:31 [NA 808-6JRdijos] host:          '/home/human/.local/share/yabridge/yabridge-host.exe'
+14:36:31 [NA 808-6JRdijos] plugin:        '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA 808.vst3/Contents/x86_64-win/NA 808.vst3'
+14:36:31 [NA 808-6JRdijos] plugin type:   'VST3'
+14:36:31 [NA 808-6JRdijos] realtime:      'yes'
+14:36:31 [NA 808-6JRdijos] sockets:       '/run/user/1000/yabridge-NA 808-6JRdijos'
+14:36:31 [NA 808-6JRdijos] wine prefix:   '/home/human/.wine'
+14:36:31 [NA 808-6JRdijos] wine version:  '11.9 (Staging)'
+14:36:31 [NA 808-6JRdijos] 
+14:36:31 [NA 808-6JRdijos] config from:   '<defaults>'
+14:36:31 [NA 808-6JRdijos] hosting mode:  'individually, 64-bit'
+14:36:31 [NA 808-6JRdijos] other options: '<none>'
+14:36:31 [NA 808-6JRdijos] 
+14:36:31 [NA 808-6JRdijos] Enabled features:
+14:36:31 [NA 808-6JRdijos] - CLAP support
+14:36:31 [NA 808-6JRdijos] - VST3 support
+14:36:31 [NA 808-6JRdijos] 
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] ERROR: ld.so: object 'libgtk3-nocsd.so.0' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 002c:fixme:winediag:loader_init wine-staging 11.9 is a testing version containing experimental patches.
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 002c:fixme:winediag:loader_init Please mention your exact version when filing bug reports on winehq.org.
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 0034:fixme:ver:GetCurrentPackageId (000000000031FEB0 0000000000000000): stub
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 002c:fixme:ver:GetCurrentPackageId (000000000031FEB0 0000000000000000): stub
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 0024:fixme:winediag:loader_init wine-staging 11.9 is a testing version containing experimental patches.
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 0024:fixme:winediag:loader_init Please mention your exact version when filing bug reports on winehq.org.
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] libEGL warning: egl: failed to create dri2 screen
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] libEGL warning: egl: failed to create dri2 screen
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] Initializing yabridge host version 5.1.1
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] Preparing to load VST3 plugin at '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA 808.vst3/Contents/x86_64-win/NA 808.vst3'
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] Finished initializing '/home/human/.wine/drive_c/Program Files/Common Files/VST3/NA 808.vst3/Contents/x86_64-win/NA 808.vst3'
+14:36:31 [NA 808-6JRdijos] [Wine STDERR] 013c:fixme:ver:GetCurrentPackageId (00000000017AFF50 0000000000000000): stub
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UIViewSettings", {3694dbf9-8f68-44be-8ff5-195c98ede8a6}, 0000000000790F40): semi-stub
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:RegisterTouchWindow hwnd 0000000000010070, flags 0 stub!
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 233 1 0000000000000000
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 4a 1 0000000000000000
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:msg:ChangeWindowMessageFilterEx 0000000000010070 49 1 0000000000000000
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Game: yabridge-host.exe.so
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  DXVK: v2.4.1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x6ffff9755870
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Built-in extension providers:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Platform WSI
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    OpenVR
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    OpenXR
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  OpenVR: could not open registry key, status 2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  OpenVR: Failed to locate module
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Enabled instance extensions:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_surface_maintenance1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_get_surface_capabilities2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_surface
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_win32_surface
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] warn:  Skipping CPU adapter: llvmpipe (LLVM 19.1.7, 256 bits)
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Memory Heap[0]: 
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Size: 8188 MiB
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Flags: 0x1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Memory Heap[1]: 
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Size: 11867 MiB
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Flags: 0x0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] err:   getMonitorEdid: Failed to load functions from setupapi.
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:RegisterSuspendResumeNotification 0000000000010070, 0: stub.
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] warn:  DxgiOutput::WaitForVBlank: Inaccurate
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Setting timer interval to 1000 us
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Memory Heap[0]: 
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Size: 8188 MiB
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Flags: 0x1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Memory Heap[1]: 
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Size: 11867 MiB
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Flags: 0x0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  D3D11InternalCreateDevice: Maximum supported feature level: D3D_FEATURE_LEVEL_12_1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  D3D11InternalCreateDevice: Using feature level D3D_FEATURE_LEVEL_10_0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Device properties:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Device : NVIDIA GeForce RTX 4060
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Enabled device extensions:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_attachment_feedback_loop_layout
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_conservative_rasterization
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_custom_border_color
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_depth_bias_control
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_depth_clip_enable
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_extended_dynamic_state3
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_fragment_shader_interlock
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_graphics_pipeline_library
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_hdr_metadata
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_line_rasterization
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_memory_priority
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_non_seamless_cube_map
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_robustness2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_shader_module_identifier
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_swapchain_maintenance1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_transform_feedback
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_EXT_vertex_attribute_divisor
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_external_memory_win32
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_external_semaphore_win32
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_maintenance5
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_pipeline_library
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_present_id
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_present_wait
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_swapchain
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_KHR_win32_keyed_mutex
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_NVX_binary_import
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_NVX_image_view_handle
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_NV_descriptor_pool_overallocation
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    VK_NV_raw_access_chains
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Device features:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    robustBufferAccess                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    fullDrawIndexUint32                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    imageCubeArray                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    independentBlend                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    geometryShader                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    tessellationShader                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sampleRateShading                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    dualSrcBlend                           : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    logicOp                                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    multiDrawIndirect                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    drawIndirectFirstInstance              : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthClamp                             : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthBiasClamp                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    fillModeNonSolid                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthBounds                            : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    wideLines                              : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    multiViewport                          : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    samplerAnisotropy                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    textureCompressionBC                   : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    occlusionQueryPrecise                  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    pipelineStatisticsQuery                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    vertexPipelineStoresAndAtomics         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    fragmentStoresAndAtomics               : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderImageGatherExtended              : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderClipDistance                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderCullDistance                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderFloat64                          : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderInt64                            : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    variableMultisampleRate                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderResourceResidency                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderResourceMinLod                   : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseBinding                          : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidencyBuffer                  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidencyImage2D                 : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidencyImage3D                 : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidency2Samples                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidency4Samples                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidency8Samples                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidency16Samples               : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    sparseResidencyAliased                 : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Vulkan 1.1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderDrawParameters                   : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Vulkan 1.2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    samplerMirrorClampToEdge               : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    drawIndirectCount                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    samplerFilterMinmax                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    hostQueryReset                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    timelineSemaphore                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    bufferDeviceAddress                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderOutputViewportIndex              : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderOutputLayer                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    vulkanMemoryModel                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Vulkan 1.3
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    robustImageAccess                      : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    pipelineCreationCacheControl           : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderDemoteToHelperInvocation         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderZeroInitializeWorkgroupMemory    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    synchronization2                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    dynamicRendering                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_AMD_shader_fragment_mask
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_attachment_feedback_loop_layout
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    attachmentFeedbackLoopLayout           : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_conservative_rasterization
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_custom_border_color
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    customBorderColors                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    customBorderColorWithoutFormat         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_depth_clip_enable
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthClipEnable                        : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_depth_bias_control
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthBiasControl                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    leastRepresentableValueForceUnormRepresentation : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    floatRepresentation                    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    depthBiasExact                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_extended_dynamic_state3
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extDynamicState3AlphaToCoverageEnable  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extDynamicState3DepthClipEnable        : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extDynamicState3RasterizationSamples   : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extDynamicState3SampleMask             : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extDynamicState3LineRasterizationMode  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_fragment_shader_interlock
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    fragmentShaderSampleInterlock          : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    fragmentShaderPixelInterlock           : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_full_screen_exclusive
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_graphics_pipeline_library
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    graphicsPipelineLibrary                : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_line_rasterization
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    rectangularLines                       : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    smoothLines                            : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_memory_budget
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_memory_priority
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    memoryPriority                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_non_seamless_cube_map
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    nonSeamlessCubeMap                     : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_robustness2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    robustBufferAccess2                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    robustImageAccess2                     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    nullDescriptor                         : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_shader_module_identifier
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderModuleIdentifier                 : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_shader_stencil_export
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_swapchain_colorspace
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_swapchain_maintenance1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    swapchainMaintenance1                  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_hdr_metadata
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_transform_feedback
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    transformFeedback                      : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    geometryStreams                        : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_EXT_vertex_attribute_divisor
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    vertexAttributeInstanceRateDivisor     : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    vertexAttributeInstanceRateZeroDivisor : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_external_memory_win32
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_external_semaphore_win32
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_maintenance5
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    maintenance5                           : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_present_id
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    presentId                              : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_present_wait
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    presentWait                            : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_NV_descriptor_pool_overallocation
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    descriptorPoolOverallocation           : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_NV_raw_access_chains
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    shaderRawAccessChains                  : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_NVX_binary_import
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_NVX_image_view_handle
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  VK_KHR_win32_keyed_mutex
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    extension supported                    : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Queue families:
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Graphics : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Transfer : 1
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:    Sparse   : 0
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  Memory type mask for sparse resources: 0x2
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] warn:  DXVK: No state cache file found
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  DXVK: Graphics pipeline libraries supported
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:d2d:d2d_d3d_create_render_target Ignoring render target usage 0x2.
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] info:  DXVK: Using 20 compiler threads
+14:36:32 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:dwrite:dwritefactory_CreateMonitorRenderingParams (0000000000000001): monitor setting ignored
+[yabridge native 46139477] render_window=60817408
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:34 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] STALE fp=0
+14:36:34 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] WA_ACTIVE on wrapper wa=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] grab+focus cxid=58720259
+[yabridge native 46139477] click type=2 x=178 y=157
+14:36:35 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=2 x=178 y=157
+14:36:35 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] subclassed child=0x10070
+14:36:35 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard LBD done: cap=0x10070 hwnd=0x10070
+14:36:35 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:36 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] click type=3 x=177 y=141
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=3 x=177 y=141
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] blitted=281/5s xcb_err=0
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] capture fps ~60
+[yabridge native 46139477] click type=8 x=175 y=147
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=147
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=147
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=147
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=142
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] click type=8 x=175 y=139
+[yabridge native 46139477] click type=8 x=175 y=139
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:37 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=139
+[yabridge native 46139477] click type=8 x=175 y=139
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=139
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=139
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=139
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=175 y=138
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:38 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:41 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] blitted=261/5s xcb_err=0
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:43 [Amped - Volcano-0DHUVXqt] Initializing yabridge version 5.1.1
+14:36:43 [Amped - Volcano-0DHUVXqt] library:       '/home/human/.local/share/yabridge/libyabridge-vst3.so'
+14:36:43 [Amped - Volcano-0DHUVXqt] host:          '/home/human/.local/share/yabridge/yabridge-host.exe'
+14:36:43 [Amped - Volcano-0DHUVXqt] plugin:        '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
+14:36:43 [Amped - Volcano-0DHUVXqt] plugin type:   'VST3'
+14:36:43 [Amped - Volcano-0DHUVXqt] realtime:      'yes'
+14:36:43 [Amped - Volcano-0DHUVXqt] sockets:       '/run/user/1000/yabridge-Amped - Volcano-0DHUVXqt'
+14:36:43 [Amped - Volcano-0DHUVXqt] wine prefix:   '/home/human/.wine'
+14:36:43 [Amped - Volcano-0DHUVXqt] wine version:  '11.9 (Staging)'
+14:36:43 [Amped - Volcano-0DHUVXqt] 
+14:36:43 [Amped - Volcano-0DHUVXqt] config from:   '<defaults>'
+14:36:43 [Amped - Volcano-0DHUVXqt] hosting mode:  'individually, 64-bit'
+14:36:43 [Amped - Volcano-0DHUVXqt] other options: '<none>'
+14:36:43 [Amped - Volcano-0DHUVXqt] 
+14:36:43 [Amped - Volcano-0DHUVXqt] Enabled features:
+14:36:43 [Amped - Volcano-0DHUVXqt] - CLAP support
+14:36:43 [Amped - Volcano-0DHUVXqt] - VST3 support
+14:36:43 [Amped - Volcano-0DHUVXqt] 
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] ERROR: ld.so: object 'libgtk3-nocsd.so.0' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] Initializing yabridge host version 5.1.1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] Preparing to load VST3 plugin at '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] Finished initializing '/home/human/.wine/drive_c/Program Files/Common Files/VST3/Amped - Volcano.vst3'
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0270:fixme:kernelbase:AppPolicyGetThreadInitializationType FFFFFFFFFFFFFFFA, 0000000002A2FF50
+14:36:43 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] capture fps ~60
+14:36:43 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UIViewSettings", {3694dbf9-8f68-44be-8ff5-195c98ede8a6}, 000000000387B9E0): semi-stub
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:RegisterTouchWindow hwnd 000000000001009C, flags 0 stub!
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 233 1 0000000000000000
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 4a 1 0000000000000000
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:msg:ChangeWindowMessageFilterEx 000000000001009C 49 1 0000000000000000
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:err:ole:com_get_class_object class {4ce576fa-83dc-4f88-951c-9d0782b4e376} not registered
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:err:ole:create_server class {4ce576fa-83dc-4f88-951c-9d0782b4e376} not registered
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:err:ole:com_get_class_object no class object {4ce576fa-83dc-4f88-951c-9d0782b4e376} could be created for context 0x6
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Game: yabridge-host.exe.so
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  DXVK: v2.4.1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x6ffff9755870
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Built-in extension providers:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Platform WSI
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    OpenVR
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    OpenXR
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  OpenVR: could not open registry key, status 2
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  OpenVR: Failed to locate module
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Enabled instance extensions:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_surface_maintenance1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_get_surface_capabilities2
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_surface
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_win32_surface
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] warn:  Skipping CPU adapter: llvmpipe (LLVM 19.1.7, 256 bits)
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  NVIDIA GeForce RTX 4060:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Memory Heap[0]: 
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Size: 8188 MiB
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Flags: 0x1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Memory Type[1]: Property Flags = 0x1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Memory Type[4]: Property Flags = 0x7
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Memory Heap[1]: 
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Size: 11867 MiB
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Flags: 0x0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Memory Type[0]: Property Flags = 0x0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Memory Type[2]: Property Flags = 0x6
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:      Memory Type[3]: Property Flags = 0xe
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  D3D11InternalCreateDevice: Maximum supported feature level: D3D_FEATURE_LEVEL_12_1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  D3D11InternalCreateDevice: Using feature level D3D_FEATURE_LEVEL_10_0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Device properties:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Device : NVIDIA GeForce RTX 4060
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Driver : NVIDIA 595.71.5
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Enabled device extensions:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_attachment_feedback_loop_layout
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_conservative_rasterization
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_custom_border_color
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_depth_bias_control
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_depth_clip_enable
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_extended_dynamic_state3
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_fragment_shader_interlock
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_graphics_pipeline_library
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_hdr_metadata
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_line_rasterization
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_memory_priority
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_non_seamless_cube_map
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_robustness2
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_shader_module_identifier
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_swapchain_maintenance1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_transform_feedback
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_EXT_vertex_attribute_divisor
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_external_memory_win32
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_external_semaphore_win32
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_maintenance5
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_pipeline_library
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_present_id
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_present_wait
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_swapchain
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_KHR_win32_keyed_mutex
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_NVX_binary_import
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_NVX_image_view_handle
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_NV_descriptor_pool_overallocation
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    VK_NV_raw_access_chains
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Device features:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    robustBufferAccess                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    fullDrawIndexUint32                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    imageCubeArray                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    independentBlend                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    geometryShader                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    tessellationShader                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sampleRateShading                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    dualSrcBlend                           : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    logicOp                                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    multiDrawIndirect                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    drawIndirectFirstInstance              : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthClamp                             : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthBiasClamp                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    fillModeNonSolid                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthBounds                            : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    wideLines                              : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    multiViewport                          : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    samplerAnisotropy                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    textureCompressionBC                   : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    occlusionQueryPrecise                  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    pipelineStatisticsQuery                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    vertexPipelineStoresAndAtomics         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    fragmentStoresAndAtomics               : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderImageGatherExtended              : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderClipDistance                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderCullDistance                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderFloat64                          : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderInt64                            : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    variableMultisampleRate                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderResourceResidency                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderResourceMinLod                   : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseBinding                          : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidencyBuffer                  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidencyImage2D                 : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidencyImage3D                 : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidency2Samples                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidency4Samples                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidency8Samples                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidency16Samples               : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    sparseResidencyAliased                 : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Vulkan 1.1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderDrawParameters                   : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Vulkan 1.2
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    samplerMirrorClampToEdge               : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    drawIndirectCount                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    samplerFilterMinmax                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    hostQueryReset                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    timelineSemaphore                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    bufferDeviceAddress                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderOutputViewportIndex              : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderOutputLayer                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    vulkanMemoryModel                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Vulkan 1.3
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    robustImageAccess                      : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    pipelineCreationCacheControl           : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderDemoteToHelperInvocation         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderZeroInitializeWorkgroupMemory    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    synchronization2                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    dynamicRendering                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_AMD_shader_fragment_mask
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_attachment_feedback_loop_layout
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    attachmentFeedbackLoopLayout           : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_conservative_rasterization
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_custom_border_color
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    customBorderColors                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    customBorderColorWithoutFormat         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_depth_clip_enable
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthClipEnable                        : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_depth_bias_control
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthBiasControl                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    leastRepresentableValueForceUnormRepresentation : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    floatRepresentation                    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    depthBiasExact                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_extended_dynamic_state3
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extDynamicState3AlphaToCoverageEnable  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extDynamicState3DepthClipEnable        : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extDynamicState3RasterizationSamples   : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extDynamicState3SampleMask             : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extDynamicState3LineRasterizationMode  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_fragment_shader_interlock
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    fragmentShaderSampleInterlock          : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    fragmentShaderPixelInterlock           : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_full_screen_exclusive
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_graphics_pipeline_library
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    graphicsPipelineLibrary                : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_line_rasterization
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    rectangularLines                       : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    smoothLines                            : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_memory_budget
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_memory_priority
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    memoryPriority                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_non_seamless_cube_map
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    nonSeamlessCubeMap                     : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_robustness2
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    robustBufferAccess2                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    robustImageAccess2                     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    nullDescriptor                         : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_shader_module_identifier
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderModuleIdentifier                 : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_shader_stencil_export
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_swapchain_colorspace
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_swapchain_maintenance1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    swapchainMaintenance1                  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_hdr_metadata
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_transform_feedback
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    transformFeedback                      : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    geometryStreams                        : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_EXT_vertex_attribute_divisor
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    vertexAttributeInstanceRateDivisor     : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    vertexAttributeInstanceRateZeroDivisor : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_external_memory_win32
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_external_semaphore_win32
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_maintenance5
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    maintenance5                           : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_present_id
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    presentId                              : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_present_wait
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    presentWait                            : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_NV_descriptor_pool_overallocation
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    descriptorPoolOverallocation           : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_NV_raw_access_chains
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    shaderRawAccessChains                  : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_NVX_binary_import
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_NVX_image_view_handle
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  VK_KHR_win32_keyed_mutex
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    extension supported                    : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Queue families:
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Graphics : 0
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Transfer : 1
+14:36:43 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:    Sparse   : 0
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  Memory type mask for sparse resources: 0x2
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] warn:  DXVK: No state cache file found
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  DXVK: Graphics pipeline libraries supported
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:d2d:d2d_d3d_create_render_target Ignoring render target usage 0x2.
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] info:  DXVK: Using 20 compiler threads
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:44 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:dwrite:dwritefactory_CreateMonitorRenderingParams (0000000000000001): monitor setting ignored
+[yabridge native 46141176] render_window=75497472
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46141176] click type=8 x=549 y=488
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] WA_ACTIVE on wrapper wa=1
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+14:36:45 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] WA_INACTIVE on wrapper (fwd DefWindowProc)
+14:36:45 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard KILLFOCUS pass-through hwnd=0x10070
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+14:36:45 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:45 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] click type=8 x=550 y=484
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] 0260:fixme:win:GetPointerType (0 000000000010E5A8): stub
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46141176] grab+focus cxid=73400323
+[yabridge native 46141176] click type=2 x=548 y=488
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] click type=2 x=548 y=488
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] subclassed child=0x1009c
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] guard LBD done: cap=0x1009c hwnd=0x1009c
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x1009c
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] STALE fp=1664
+14:36:46 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x1009c
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] blitted=262/5s xcb_err=0
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+14:36:47 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46141176] click type=3 x=554 y=507
+14:36:48 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] click type=3 x=554 y=507
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] grab+focus cxid=58720259
+[yabridge native 46139477] click type=2 x=453 y=212
+14:36:48 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=2 x=453 y=212
+14:36:48 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard LBD done: cap=0x10070 hwnd=0x10070
+14:36:48 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
+14:36:49 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] capture fps ~60
+[yabridge native 46139477] click type=3 x=453 y=212
+14:36:49 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=3 x=453 y=212
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] blitted=233/5s xcb_err=0
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+14:36:49 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x1009c
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+14:36:50 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+14:36:50 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] capture fps ~60
+[yabridge native 46139477] grab+focus cxid=58720259
+[yabridge native 46139477] click type=2 x=243 y=209
+14:36:50 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=2 x=243 y=209
+14:36:50 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard LBD done: cap=0x10070 hwnd=0x10070
+14:36:50 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] PostMessage WM_LBUTTONDOWN ok=1 target=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] click type=3 x=240 y=220
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] click type=3 x=240 y=220
+[yabridge native 46139477] click type=8 x=248 y=203
+[yabridge native 46139477] click type=8 x=250 y=201
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] WA_ACTIVE on wrapper wa=1
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=252 y=200
+14:36:51 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x1009c
+14:36:51 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46139477] click type=8 x=254 y=198
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=254 y=198
+[yabridge native 46139477] click type=8 x=254 y=198
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] click type=8 x=254 y=198
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=254 y=198
+[yabridge native 46139477] click type=8 x=254 y=198
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=254 y=196
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+[yabridge native 46139477] click type=8 x=254 y=196
+[yabridge native 46139477] blitted=254/5s xcb_err=0
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] 00f0:fixme:win:GetPointerType (0 000000000010E298): stub
+14:36:52 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+[yabridge native 46141176] blitted=232/5s xcb_err=0
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
+14:36:54 [Amped - Volcano-0DHUVXqt] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x1009c
+[yabridge native 46139477] health: viewable=1
+[yabridge native 46139477] siblings=1 at_top=1
+14:36:55 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] capture fps ~60
+14:36:55 [NA 808-6JRdijos] [Wine STDERR] [yabridge gdi] guard SETFOCUS hwnd=0x10070
+[yabridge native 46141176] health: viewable=1
+[yabridge native 46141176] siblings=1 at_top=1
 ^C
 human@devuan:~$ 
 
