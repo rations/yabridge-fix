@@ -801,8 +801,7 @@ void Vst3Bridge::run() {
                     .run_in_context([&, &instance = instance]() -> tresult {
                         Editor& editor_instance = instance.editor.emplace(
                             main_context_, config_, generic_logger_,
-                            x11_handle, std::nullopt,
-                            request.frame_shm_name);
+                            x11_handle);
                         const tresult result =
                             instance.plug_view_instance->plug_view->attached(
                                 editor_instance.win32_handle(), type.c_str());
@@ -825,24 +824,6 @@ void Vst3Bridge::run() {
                             //       pointers when the window is already
                             //       visible. Thanks Waves.
                             instance.editor->show();
-
-                            // When a new plugin editor is created, Win32
-                            // activation messages (WM_KILLFOCUS, WM_ACTIVATE)
-                            // may reach other plugins in the same process and
-                            // cause them to pause their render loops.  Re-send
-                            // onFocus(true) and WM_SETFOCUS to every other
-                            // active editor to wake their rendering back up.
-                            for (auto& [other_id, other] : object_instances_) {
-                                if (other_id == request.owner_instance_id)
-                                    continue;
-                                if (!other.plug_view_instance ||
-                                    !other.plug_view_instance->plug_view)
-                                    continue;
-                                if (!other.editor) continue;
-                                other.plug_view_instance->plug_view->onFocus(1);
-                                PostMessage(other.editor->win32_handle(),
-                                            WM_SETFOCUS, 0, 0);
-                            }
                         } else {
                             instance.editor.reset();
                         }

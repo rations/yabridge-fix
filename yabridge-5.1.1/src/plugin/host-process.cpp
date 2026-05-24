@@ -158,7 +158,6 @@ void IndividualHost::terminate() {
 
     // This will also reap the terminated process
     handle_.terminate();
-
 }
 
 GroupHost::GroupHost(asio::io_context& io_context,
