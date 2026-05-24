@@ -8,7 +8,7 @@ Windows VST2/VST3/CLAP plugin GUIs would not work under Wine >= 9.21 when bridge
 
 ### Bug — Mouse input completely non-functional (wm_state_serial deadlock)
 
-Even after fixing the reparent order, plugin GUIs rendered correctly but were completely non-interactive.
+Plugin GUIs rendered correctly but were completely non-interactive.
 
 **The coordinate mismatch:** When a user clicks at screen position `(abs_x+dx, abs_y+dy)`, Wine routes the ButtonPress through `map_event_coords()` which uses the absolute root coordinates. These become the Win32 mouse event coordinates. Wine's server then calls `screen_to_client(hwnd, abs_x+dx, abs_y+dy)` to produce client-relative coordinates for the WM_LBUTTONDOWN lParam. If the HWND thinks it is at Win32 position `(0, 0)` — instead of the true screen position `(abs_x, abs_y)` — the resulting client coordinates are `(abs_x+dx, abs_y+dy)` which are completely outside the plugin's drawable area. The plugin ignores the click.
 
@@ -27,20 +27,7 @@ When `make_window_embedded()` is called (from the XEMBED_EMBEDDED_NOTIFY handler
 
 ### `src/wine-host/editor.cpp`
 
-**1. Fixed `do_xembed()` — send EMBEDDED_NOTIFY before reparenting**
-
-```cpp
-// Before (broken):
-do_reparent(wine_window_, wrapper_window_.window_);
-send_xembed_message(wine_window_, xembed_embedded_notify_msg, ...);
-
-// After (correct per XEmbed spec):
-send_xembed_message(wine_window_, xembed_embedded_notify_msg, ...);
-xcb_flush(x11_connection_.get());
-do_reparent(wine_window_, wrapper_window_.window_);
-```
-
-**2. Fixed `fix_local_coordinates()` — use SetWindowPos in XEmbed mode**
+**1. Fixed `fix_local_coordinates()` — use SetWindowPos in XEmbed mode**
 
 In XEmbed mode, instead of sending a ConfigureNotify (which is blocked by `wm_state_serial`), call `SetWindowPos` directly to update the Win32 HWND screen position:
 
@@ -53,7 +40,7 @@ if (use_xembed_) {
 }
 ```
 
-**3. Added `fix_local_coordinates()` call in VisibilityNotify handler**
+**2. Added `fix_local_coordinates()` call in VisibilityNotify handler**
 
 ```cpp
 if (use_xembed_) {
@@ -62,7 +49,7 @@ if (use_xembed_) {
 }
 ```
 
-**4. Removed the XEmbed early-return guard from `fix_local_coordinates()`**
+**3. Removed the XEmbed early-return guard from `fix_local_coordinates()`**
 
 The original code had `if (use_xembed_) { return; }` at the top of `fix_local_coordinates()`, preventing it from ever running in XEmbed mode. Removed.
 
@@ -97,14 +84,39 @@ Required because `/opt/wine-staging/include/` was empty on this system.
 ~/.local/share/yabridge/libyabridge-clap.so
 ~/.local/share/yabridge/yabridge-host.exe.so
 ~/.local/share/yabridge/yabridge-host.exe
+~/.local/share/yabridge/yabridge-host-32.exe
+~/.local/share/yabridge/yabridge-host-32.exe.so
 ```
 
-The Wine-side host binary (`yabridge-host.exe`) is shared across all plugin formats. All three native `.so` files were redeployed because `configuration.h` is compiled into them.
+The Wine-side host binary (`yabridge-host.exe`) is shared across all plugin formats. All three native `.so` files were redeployed because `configuration.h` is compiled into them. The 32-bit host (`yabridge-host-32.exe`) handles 32-bit Windows plugins.
+
+## 32-bit Build Setup
+
+Building with `-Dbitbridge=true` required several missing pieces on this system. Three symlinks were needed to make `winegcc-stable` find the 32-bit Wine import libraries:
+
+**1. Point the i386-windows Wine DLL directory at wine-staging's copy** (Debian wine32 has `.dll` files but not the `.a` import libraries that winegcc needs):
+
+```bash
+sudo rm /usr/lib/wine/i386-windows
+sudo ln -s /opt/wine-staging/lib/wine/i386-windows /usr/lib/wine/i386-windows
+```
+
+**2. Create the i386-unix directory that winegcc-stable looks in** (Debian has no `i386-unix` at all; winegcc constructs the path with a double `wine/` segment):
+
+```bash
+sudo mkdir -p /usr/lib/x86_64-linux-gnu/wine/wine
+sudo ln -s /opt/wine-staging/lib/wine/i386-unix /usr/lib/x86_64-linux-gnu/wine/wine/i386-unix
+```
+
+Also required:
+
+```bash
+sudo apt install g++-multilib libxcb1-dev:i386 uuid-dev:i386 wine32
+```
 
 ## Key Wine Source References
 
 - `dlls/winex11.drv/event.c:1456` — `handle_xembed_protocol` / `XEMBED_EMBEDDED_NOTIFY` handler, calls `make_window_embedded()`
-- `dlls/winex11.drv/event.c:1061` — `X11DRV_ReparentNotify`, guarded by `data->embedded`
 - `dlls/winex11.drv/window.c:1417` — `window_set_config` embedded guard, prevents XConfigureWindow position changes for embedded windows
 - `dlls/winex11.drv/window.c:1622` — `window_set_wm_state` sets `wm_state_serial`
 - `dlls/winex11.drv/window.c:1744` — `window_update_client_config` blocked by `wm_state_serial`
