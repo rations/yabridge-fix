@@ -165,6 +165,17 @@ void AppWindow::run_with_output(GtkWidget* spinner, GtkWidget* btn, GtkWidget* t
 
 // ─── Shared helpers ───────────────────────────────────────────────────────────
 
+// Replace the leading $HOME prefix with ~ for display purposes.
+static std::string pretty_path(const fs::path& p) {
+    const char* home = std::getenv("HOME");
+    if (!home) return p.string();
+    std::string s = p.string();
+    std::string h = home;
+    if (s.size() >= h.size() && s.compare(0, h.size(), h) == 0)
+        return "~" + s.substr(h.size());
+    return s;
+}
+
 static void show_error(GtkWidget* parent, const std::string& msg) {
     GtkWidget* dlg = gtk_message_dialog_new(
         GTK_WINDOW(parent),
@@ -240,6 +251,18 @@ void AppWindow::refresh_settings() {
     gtk_combo_box_set_active(GTK_COMBO_BOX(settings_vst2_combo),
                              config.vst2_location == Vst2InstallationLocation::Inline ? 1 : 0);
     gtk_switch_set_active(GTK_SWITCH(settings_noverify_sw), config.no_verify);
+
+    // Update install location labels
+    if (config.vst2_location == Vst2InstallationLocation::Inline)
+        gtk_label_set_text(GTK_LABEL(settings_vst2_loc_lbl), "inline (next to each .dll)");
+    else
+        gtk_label_set_text(GTK_LABEL(settings_vst2_loc_lbl),
+                           pretty_path(yabridge_vst2_home()).c_str());
+
+    gtk_label_set_text(GTK_LABEL(settings_vst3_loc_lbl),
+                       pretty_path(yabridge_vst3_home()).c_str());
+    gtk_label_set_text(GTK_LABEL(settings_clap_loc_lbl),
+                       pretty_path(yabridge_clap_home()).c_str());
 }
 
 // ─── Signal callbacks ─────────────────────────────────────────────────────────
@@ -247,7 +270,7 @@ void AppWindow::refresh_settings() {
 static void on_dir_add(GtkButton*, gpointer data) {
     auto* win = static_cast<AppWindow*>(data);
     GtkWidget* dlg = gtk_file_chooser_dialog_new(
-        "Select Plugin Directory", GTK_WINDOW(win->window),
+        "Select VST2, VST3 or CLAP Plugin Directory", GTK_WINDOW(win->window),
         GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
         "_Cancel", GTK_RESPONSE_CANCEL,
         "_Add", GTK_RESPONSE_ACCEPT, nullptr);
@@ -410,6 +433,12 @@ GtkWidget* AppWindow::build_directories_tab() {
     gtk_widget_set_margin_start(box, 8);
     gtk_widget_set_margin_end(box, 8);
 
+    GtkWidget* hint = gtk_label_new(
+        "Directories to search for Windows VST2, VST3 and CLAP plugins.");
+    gtk_label_set_xalign(GTK_LABEL(hint), 0.0f);
+    gtk_widget_set_margin_bottom(hint, 6);
+    gtk_box_pack_start(GTK_BOX(box), hint, FALSE, FALSE, 0);
+
     dir_list = gtk_list_box_new();
     gtk_list_box_set_selection_mode(GTK_LIST_BOX(dir_list), GTK_SELECTION_SINGLE);
     gtk_box_pack_start(GTK_BOX(box), wrap_in_scroll(dir_list), TRUE, TRUE, 0);
@@ -513,6 +542,7 @@ GtkWidget* AppWindow::build_settings_tab() {
     gtk_grid_attach(GTK_GRID(grid), browse_btn, 2, row, 1, 1);
 
     GtkWidget* auto_btn = gtk_button_new_with_label("Auto");
+    gtk_widget_set_tooltip_text(auto_btn, "Search standard locations for yabridge files");
     g_signal_connect(auto_btn, "clicked", G_CALLBACK(on_settings_auto), this);
     gtk_grid_attach(GTK_GRID(grid), auto_btn, 3, row, 1, 1);
     ++row;
@@ -528,6 +558,9 @@ GtkWidget* AppWindow::build_settings_tab() {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(settings_vst2_combo),
                                    "Inline (next to .dll)");
     gtk_combo_box_set_active(GTK_COMBO_BOX(settings_vst2_combo), 0);
+    gtk_widget_set_tooltip_text(settings_vst2_combo,
+        "Centralized: all VST2 bridges go to ~/.vst/yabridge/\n"
+        "Inline: bridge is placed next to each Windows .dll file");
     gtk_grid_attach(GTK_GRID(grid), settings_vst2_combo, 1, row, 2, 1);
     ++row;
 
@@ -538,6 +571,8 @@ GtkWidget* AppWindow::build_settings_tab() {
 
     settings_noverify_sw = gtk_switch_new();
     gtk_widget_set_halign(settings_noverify_sw, GTK_ALIGN_START);
+    gtk_widget_set_tooltip_text(settings_noverify_sw,
+        "Skip the Wine/yabridge compatibility check that runs after every sync");
     gtk_grid_attach(GTK_GRID(grid), settings_noverify_sw, 1, row, 1, 1);
     ++row;
 
@@ -547,6 +582,42 @@ GtkWidget* AppWindow::build_settings_tab() {
     gtk_widget_set_margin_top(apply_btn, 6);
     g_signal_connect(apply_btn, "clicked", G_CALLBACK(on_settings_apply), this);
     gtk_grid_attach(GTK_GRID(grid), apply_btn, 0, row, 4, 1);
+    ++row;
+
+    // ── Install locations (read-only) ────────────────────────────────────────
+
+    GtkWidget* sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+    gtk_widget_set_margin_top(sep, 8);
+    gtk_widget_set_margin_bottom(sep, 4);
+    gtk_grid_attach(GTK_GRID(grid), sep, 0, row, 4, 1);
+    ++row;
+
+    GtkWidget* loc_heading = gtk_label_new("Install locations");
+    gtk_label_set_xalign(GTK_LABEL(loc_heading), 0.0f);
+    gtk_widget_set_margin_bottom(loc_heading, 2);
+    gtk_style_context_add_class(gtk_widget_get_style_context(loc_heading), "dim-label");
+    gtk_grid_attach(GTK_GRID(grid), loc_heading, 0, row, 4, 1);
+    ++row;
+
+    auto make_loc_row = [&](const char* label_text, GtkWidget** label_out) {
+        GtkWidget* lbl = gtk_label_new(label_text);
+        gtk_label_set_xalign(GTK_LABEL(lbl), 0.0f);
+        gtk_grid_attach(GTK_GRID(grid), lbl, 0, row, 1, 1);
+
+        GtkWidget* val = gtk_label_new("");
+        gtk_label_set_xalign(GTK_LABEL(val), 0.0f);
+        gtk_label_set_selectable(GTK_LABEL(val), TRUE);
+        gtk_label_set_ellipsize(GTK_LABEL(val), PANGO_ELLIPSIZE_MIDDLE);
+        gtk_widget_set_hexpand(val, TRUE);
+        gtk_grid_attach(GTK_GRID(grid), val, 1, row, 3, 1);
+
+        *label_out = val;
+        ++row;
+    };
+
+    make_loc_row("VST2:", &settings_vst2_loc_lbl);
+    make_loc_row("VST3:", &settings_vst3_loc_lbl);
+    make_loc_row("CLAP:", &settings_clap_loc_lbl);
 
     return grid;
 }

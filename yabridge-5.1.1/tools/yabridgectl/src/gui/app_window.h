@@ -42,9 +42,12 @@ struct AppWindow {
     GtkWidget* status_textview = nullptr;
 
     // Tab: Settings
-    GtkWidget* settings_path_entry  = nullptr;
-    GtkWidget* settings_vst2_combo  = nullptr;
-    GtkWidget* settings_noverify_sw = nullptr;
+    GtkWidget* settings_path_entry   = nullptr;
+    GtkWidget* settings_vst2_combo   = nullptr;
+    GtkWidget* settings_noverify_sw  = nullptr;
+    GtkWidget* settings_vst2_loc_lbl = nullptr;
+    GtkWidget* settings_vst3_loc_lbl = nullptr;
+    GtkWidget* settings_clap_loc_lbl = nullptr;
 
     // Tab: Blacklist
     GtkWidget* bl_list = nullptr;
