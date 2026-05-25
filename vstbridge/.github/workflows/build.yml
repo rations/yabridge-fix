@@ -18,12 +18,10 @@ defaults:
     shell: bash
 
 jobs:
-  build-focal:
+  build:
     name: Build on Ubuntu 20.04
     runs-on: ubuntu-latest
     container: robbert/docker-yabridge:focal
-    outputs:
-      artifact-name: ${{ env.ARCHIVE_NAME }}
     steps:
       - uses: actions/checkout@v3
       # Needed for git-describe to do anything useful, the safe directory
@@ -32,10 +30,11 @@ jobs:
         run: |
           git config --global --add safe.directory /__w/vstbridge/vstbridge
           git fetch --force --prune --tags --unshallow
-      - name: Determine build archive name
+      - name: Install GTK3 (for vstbridgectl-gtk)
         run: |
-          echo "ARCHIVE_NAME=vstbridge-$(git describe --always).tar.gz" >> "$GITHUB_ENV"
-      - name: Build the binaries
+          apt-get update
+          apt-get install -y libgtk-3-dev
+      - name: Build bridge binaries
         run: |
           mkdir -p /tmp/prefix
           export WINEPREFIX=/tmp/prefix
@@ -45,59 +44,9 @@ jobs:
           # compatible with GCC 10, even if that's not the default GCC version
           meson setup build --buildtype=release --cross-file=cross-wine.conf --unity=on --unity-size=10000 -Dbitbridge=true
           ninja -C build
-      - name: Strip remaining debug symbols
-        run: strip build/libvstbridge{,-chainloader}-{clap,vst2,vst3}.so build/vstbridge-host{,-32}.exe.so
-      - name: Create an archive for the binaries
+      - name: Build vstbridgectl
+        run: make -C tools/vstbridgectl
+      - name: Strip debug symbols
         run: |
-          mkdir vstbridge
-          cp build/libvstbridge{,-chainloader}-{clap,vst2,vst3}.so build/vstbridge-host{,-32}.exe{,.so} vstbridge
-          cp CHANGELOG.md README.md vstbridge
-
-          tar -caf "$ARCHIVE_NAME" vstbridge
-          rm -rf vstbridge
-      - uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.ARCHIVE_NAME }}
-          path: ${{ env.ARCHIVE_NAME }}
-
-  build-vstbridgectl:
-    name: Build vstbridgectl
-    runs-on: ubuntu-latest
-    container: robbert/docker-yabridge:focal
-    outputs:
-      artifact-name: ${{ env.ARCHIVE_NAME }}
-    defaults:
-      run:
-        working-directory: tools/vstbridgectl
-    steps:
-      - uses: actions/checkout@v3
-      # Needed for git-describe to do anything useful, the safe directory
-      # workaround is needed for https://github.com/actions/runner/issues/2033
-      - name: Fetch all git history
-        run: |
-          git config --global --add safe.directory /__w/vstbridge/vstbridge
-          git fetch --force --prune --tags --unshallow
-      - name: Determine build archive name
-        run: |
-          echo "ARCHIVE_NAME=vstbridgectl-$(git describe --always).tar.gz" >> "$GITHUB_ENV"
-      - name: Install dependencies
-        run: |
-          apt-get update
-          apt-get install -y libgtk-3-dev
-      - name: Build the binaries
-        run: make -C .
-      - name: Strip remaining debug symbols
-        run: strip build/vstbridgectl build/vstbridgectl-gtk
-      - name: Create an archive for the binaries
-        run: |
-          mkdir vstbridgectl
-          cp build/vstbridgectl build/vstbridgectl-gtk README.md vstbridgectl
-
-          tar -caf "$ARCHIVE_NAME" vstbridgectl
-          rm -rf vstbridgectl
-      - uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.ARCHIVE_NAME }}
-          # For some reason there's no way to tell GitHub actions to run actions
-          # in a subdirectory
-          path: tools/vstbridgectl/${{ env.ARCHIVE_NAME }}
+          strip build/libvstbridge{,-chainloader}-{clap,vst2,vst3}.so build/vstbridge-host{,-32}.exe.so
+          strip tools/vstbridgectl/build/vstbridgectl tools/vstbridgectl/build/vstbridgectl-gtk
