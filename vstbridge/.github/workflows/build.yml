@@ -1,0 +1,103 @@
+name: Automated builds
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      # Run when pushing version tags, since otherwise it's impossible to
+      # restart a successful build after pushing a tag
+      - '*.*.*'
+  pull_request:
+    branches:
+      - master
+
+defaults:
+  run:
+    # This otherwise gets run under dash which does not support brace expansion
+    shell: bash
+
+jobs:
+  build-focal:
+    name: Build on Ubuntu 20.04
+    runs-on: ubuntu-latest
+    container: robbert/docker-yabridge:focal
+    outputs:
+      artifact-name: ${{ env.ARCHIVE_NAME }}
+    steps:
+      - uses: actions/checkout@v3
+      # Needed for git-describe to do anything useful, the safe directory
+      # workaround is needed for https://github.com/actions/runner/issues/2033
+      - name: Fetch all git history
+        run: |
+          git config --global --add safe.directory /__w/vstbridge/vstbridge
+          git fetch --force --prune --tags --unshallow
+      - name: Determine build archive name
+        run: |
+          echo "ARCHIVE_NAME=vstbridge-$(git describe --always).tar.gz" >> "$GITHUB_ENV"
+      - name: Build the binaries
+        run: |
+          mkdir -p /tmp/prefix
+          export WINEPREFIX=/tmp/prefix
+
+          # In this version we don't need to statically link libstdc++ since
+          # Ubuntu 20.04 and similar distros will ship with a version that's
+          # compatible with GCC 10, even if that's not the default GCC version
+          meson setup build --buildtype=release --cross-file=cross-wine.conf --unity=on --unity-size=10000 -Dbitbridge=true
+          ninja -C build
+      - name: Strip remaining debug symbols
+        run: strip build/libvstbridge{,-chainloader}-{clap,vst2,vst3}.so build/vstbridge-host{,-32}.exe.so
+      - name: Create an archive for the binaries
+        run: |
+          mkdir vstbridge
+          cp build/libvstbridge{,-chainloader}-{clap,vst2,vst3}.so build/vstbridge-host{,-32}.exe{,.so} vstbridge
+          cp CHANGELOG.md README.md vstbridge
+
+          tar -caf "$ARCHIVE_NAME" vstbridge
+          rm -rf vstbridge
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ARCHIVE_NAME }}
+          path: ${{ env.ARCHIVE_NAME }}
+
+  build-vstbridgectl:
+    name: Build vstbridgectl
+    runs-on: ubuntu-latest
+    container: robbert/docker-yabridge:focal
+    outputs:
+      artifact-name: ${{ env.ARCHIVE_NAME }}
+    defaults:
+      run:
+        working-directory: tools/vstbridgectl
+    steps:
+      - uses: actions/checkout@v3
+      # Needed for git-describe to do anything useful, the safe directory
+      # workaround is needed for https://github.com/actions/runner/issues/2033
+      - name: Fetch all git history
+        run: |
+          git config --global --add safe.directory /__w/vstbridge/vstbridge
+          git fetch --force --prune --tags --unshallow
+      - name: Determine build archive name
+        run: |
+          echo "ARCHIVE_NAME=vstbridgectl-$(git describe --always).tar.gz" >> "$GITHUB_ENV"
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y libgtk-3-dev
+      - name: Build the binaries
+        run: make -C .
+      - name: Strip remaining debug symbols
+        run: strip build/vstbridgectl build/vstbridgectl-gtk
+      - name: Create an archive for the binaries
+        run: |
+          mkdir vstbridgectl
+          cp build/vstbridgectl build/vstbridgectl-gtk README.md vstbridgectl
+
+          tar -caf "$ARCHIVE_NAME" vstbridgectl
+          rm -rf vstbridgectl
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ARCHIVE_NAME }}
+          # For some reason there's no way to tell GitHub actions to run actions
+          # in a subdirectory
+          path: tools/vstbridgectl/${{ env.ARCHIVE_NAME }}

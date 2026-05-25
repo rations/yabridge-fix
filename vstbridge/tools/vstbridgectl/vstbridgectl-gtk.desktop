@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=vstbridgectl
+GenericName=Wine Plugin Manager
+Comment=Manage vstbridge Wine plugin installations
+Exec=vstbridgectl-gtk
+Icon=preferences-system
+Categories=AudioVideo;Audio;Multimedia;
+Terminal=false
+Keywords=vst;vst3;clap;wine;vstbridge;plugin;audio;
